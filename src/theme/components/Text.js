@@ -18,6 +18,9 @@ export default (variables = variable) => {
     ".button":{
       fontSize:variable.DefaultFontSize*2,
       lineHeight:variable.DefaultFontSize*2,
+    },
+    ".invert":{
+      color:"#FFF"
     }
   };
 

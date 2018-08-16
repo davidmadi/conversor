@@ -152,7 +152,7 @@ const Drawer = DrawerNavigator(
     Actionsheet: { screen: Actionsheet }
   },
   {
-    initialRouteName: "Home",
+    initialRouteName: "Conversor",
     contentOptions: {
       activeTintColor: "#e91e63"
     },

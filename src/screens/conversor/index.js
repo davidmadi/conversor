@@ -11,6 +11,7 @@ import { connect } from "react-redux";
 import MySidebar from '../../library/components/mySideBar';
 import LeftSide from './leftSide';
 import RightSide from './rightSide';
+import TopMenu from './topMenu';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import ConversorAction from '../../library/actions/conversor';
 
@@ -58,7 +59,8 @@ class Home extends Component {
       <Container>
         <StatusBar barStyle="light-content" />
         <ImageBackground source={launchscreenBg} style={styles.imageContainer}>
-          <View style={{flex:1}}/>
+          <View style={{height:20}} />
+          <TopMenu />
           <View style={{flex:2}}>
             <Button
                 style={{ backgroundColor: "#6FAF98", alignSelf: "center" }}
