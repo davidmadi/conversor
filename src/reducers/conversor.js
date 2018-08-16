@@ -1,17 +1,19 @@
 import { Map, List, Set } from 'immutable';
 import Conversor from '../library/conversor/index';
 
+
 function initialState(){
+  const conversorInstance = new Conversor();
   return {
-    conversor : new Conversor(),
+    conversor : conversorInstance,
     medidaFrom : null,
     medidaTo : null,
     ingrediente : null,
-    quantidade : "",
+    quantidade : '1',
     resultado : null,
-    allMedidasFrom : (new Conversor()).getMedidas(),
-    allMedidasTo : (new Conversor()).getMedidas(),
-    allIngredientes : (new Conversor()).getIngredientes(),
+    allMedidasFrom : conversorInstance.getMedidas(),
+    allMedidasTo : conversorInstance.getMedidas(),
+    allIngredientes : conversorInstance.getIngredientes(),
   }
 }
 
@@ -45,7 +47,6 @@ export default (state = initialState(), action) =>{//sem nome mesmo
       break;
     case 'CONVERSOR_QUANTIDADE':
       state = map.set('quantidade', action.quantidade).toObject();
-      state.conversor.setEntrada(action.quantidade);
       break;
     case 'CONVERSOR_RESULTADO':
       state = map.set('resultado', action.resultado).toObject();
@@ -55,6 +56,7 @@ export default (state = initialState(), action) =>{//sem nome mesmo
   if (state.ingrediente && state.medidaFrom && state.medidaTo && state.quantidade)
   {
     map = Map(state);
+    state.conversor.setEntrada(state.quantidade);
     let resultado = state.conversor.calcularResultado();
     state = map.set('resultado', resultado).toObject();
   }

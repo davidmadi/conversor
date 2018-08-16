@@ -59,16 +59,16 @@ class Home extends Component {
       <Container>
         <StatusBar barStyle="light-content" />
         <ImageBackground source={launchscreenBg} style={styles.imageContainer}>
-          <View style={{height:20}} />
           <TopMenu />
-          <View style={{flex:2}}>
-            <Button
-                style={{ backgroundColor: "#6FAF98", alignSelf: "center" }}
-                onPress={() => this.openLeft()}
+          <View style={{height:20}} />
+          <View style={{flex:1}}>
+            <Item
+                style={{ height:100, backgroundColor: "#6FAF98", alignSelf: "center" }}
               >
               <Text>{strIngrediente}</Text>
-            </Button>
+            </Item>
           </View>
+          <View style={{height:20}} />
           <View full style={{flex:1,flexDirection:"row", height:40}}>
             <View half>
               <Item third rounded quantity>
@@ -104,7 +104,7 @@ class Home extends Component {
               alignItems: "center",
               marginTop:30
               }}>
-              <Text tab invert title>XX{this.props.resultado}</Text>
+              <Text tab invert title>{this.props.resultado}</Text>
             </View>
             <View half>
               <Button

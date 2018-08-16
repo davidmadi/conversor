@@ -60,8 +60,7 @@ class LeftSide extends Component {
                   button
                   noBorder
                   onPress={() => this.props.setIngrediente(this, ingrediente)}
-                  style={{backgroundColor:backColor}}
-                >
+                  style={{backgroundColor:backColor}}>
                   <Left >
                     <Icon
                       active

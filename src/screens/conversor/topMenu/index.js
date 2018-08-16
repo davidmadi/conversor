@@ -6,7 +6,7 @@ import {
   List,
   ListItem,
   Icon,
-  Container,
+  Item,
   Left,
   Right,
   View
@@ -29,26 +29,30 @@ class TopMenu extends Component {
   }
 
   render() {
-    let wid = this.props.allIngredientes.length * 40;
+    let wid = this.props.allIngredientes.length * 100;
     return (
-      <View style={{zIndex:20}}>
-        <Text tab note>aa</Text>
-        <ScrollView showsVerticalScrollIndicator={false} style={{zIndex:20, width:wid, height:50, flexDirection:"row"}}>
+      <View style={{backgroundColor:'#6FAF98'}}>
+        <ScrollView 
+          horizontal={true}
+          style={{zIndex:20,backgroundColor:'black', height:100}}>
             {this.props.allIngredientes.map(ingrediente => {
               return (
-                <View key={ingrediente.nome + ingrediente.selecionado}>
-                  <Icon
-                    active
-                    name="log-in"
-                    style={{ zIndex:20, color: "#FFF", fontSize: 20, width: 30 }}
-                  />
-                  <Text tab title invert note style={{zIndex:20}}>
-                    {ingrediente.nome}
-                  </Text>
+                <View key={ingrediente.nome + ingrediente.selecionado}
+                style={{zIndex:20, width:100, height:100}}>
+                  <Item style={{alignContent:'center', alignItems:'center', flexDirection:"column"}}
+                    onPress={() => this.props.setIngrediente(this, ingrediente)}>
+                    <Icon
+                      active
+                      name="log-in"
+                      style={{ zIndex:20, color: "#FFF", fontSize: 20, height:30}}
+                    />
+                    <Text title invert note style={{textAlign:'center', zIndex:20}}>
+                      {ingrediente.nome}
+                    </Text>
+                  </Item>
                 </View>
               );
             })}
-            <Text tab note>bbb</Text>
         </ScrollView>
       </View>
     );

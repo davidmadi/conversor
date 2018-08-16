@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Animated, View, TouchableOpacity } from "react-native";
+import { Animated, View, TouchableOpacity, Touchable } from "react-native";
 
 const ReactNative = require("react-native");
 const { Dimensions } = ReactNative;
@@ -46,7 +46,7 @@ class MySideBar extends Component {
         <View style={{position:'absolute', width:sidebarwidth, left:leftViewLeftPos, height:deviceHeight, zIndex:11}}>
           {leftShow}
         </View>
-        <TouchableOpacity onPress={()=>this.close()} style={{ width:deviceWidth, zIndex:10, position:'absolute', left:0, height:deviceHeight, backgroundColor:'blue' }}>
+        <TouchableOpacity onPress={()=>this.close()} style={{ width:deviceWidth, zIndex:10, position:'absolute', left:0, height:deviceHeight, backgroundColor:'transparent' }}>
           {this.props.contentView}
         </TouchableOpacity>
         <View style={{position:'absolute', width:sidebarwidth, backgroundColor:'red', height:deviceHeight, left:rightViewLeftPos, zIndex:11}}>
