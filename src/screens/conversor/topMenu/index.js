@@ -31,20 +31,20 @@ class TopMenu extends Component {
   render() {
     let wid = this.props.allIngredientes.length * 100;
     return (
-      <View style={{backgroundColor:'#6FAF98'}}>
+      <View style={{backgroundColor:'transparent'}}>
         <ScrollView 
           horizontal={true}
-          style={{zIndex:20,backgroundColor:'black', height:100}}>
+          style={{zIndex:20,backgroundColor:'transparent', height:100}}>
             {this.props.allIngredientes.map(ingrediente => {
               return (
                 <View key={ingrediente.nome + ingrediente.selecionado}
                 style={{zIndex:20, width:100, height:100}}>
-                  <Item style={{alignContent:'center', alignItems:'center', flexDirection:"column"}}
+                  <Item style={{borderColor:'#000', borderWidth:1, alignContent:'center', alignItems:'center', flexDirection:"column"}}
                     onPress={() => this.props.setIngrediente(this, ingrediente)}>
                     <Icon
                       active
                       name="log-in"
-                      style={{ zIndex:20, color: "#FFF", fontSize: 20, height:30}}
+                      style={{ zIndex:20, color: "#000", fontSize: 20, height:30}}
                     />
                     <Text title invert note style={{textAlign:'center', zIndex:20}}>
                       {ingrediente.nome}

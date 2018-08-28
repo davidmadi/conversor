@@ -14,10 +14,16 @@ import RightSide from './rightSide';
 import TopMenu from './topMenu';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import ConversorAction from '../../library/actions/conversor';
+import { Font } from 'expo';
+
+import Ingredientes from './Ingredientes'
+import Medidas1 from './Medidas1'
+import Medidas2 from './Medidas2'
+
 
 import styles from "./styles";
 
-const launchscreenBg = require("../../../assets/launchscreen-bg.png");
+const launchscreenBg = require("../../../assets/bg.png");
 const launchscreenLogo = require("../../../assets/logo-kitchen-sink.png");
 
 class Home extends Component {
@@ -25,12 +31,22 @@ class Home extends Component {
   constructor(){
     super();
     this.state = {
-      loading:false
+      loading:false,
+      fontLoaded: false
     };
     this.onChooseLeft = this.onChooseLeft.bind(this);
     this.onChooseRightFrom = this.onChooseRightFrom.bind(this);
     this.onChooseRightTo = this.onChooseRightTo.bind(this);
   }
+
+  async componentDidMount() {
+    await Font.loadAsync({
+      'Riesling': require('../../../assets/fonts/riesling.ttf')
+    });
+    
+    this.setState({ fontLoaded: true });
+  }
+  
 
   openLeft(){
     this._mysidebar.openLeft();
@@ -55,79 +71,55 @@ class Home extends Component {
     let strMedidaTo = (this.props.medidaTo) ? this.props.medidaTo.nome : "  PARA  "
     let is = "é";
 
-    let content = ( 
+    let content = (
       <Container>
-        <StatusBar barStyle="light-content" />
-        <ImageBackground source={launchscreenBg} style={styles.imageContainer}>
+        <ImageBackground source={launchscreenBg} style={styles.backgroundImage} >
+          <View style={{height:20}} />
           <TopMenu />
-          <View style={{height:20}} />
-          <View style={{flex:1}}>
-            <Item
-                style={{ height:100, backgroundColor: "#6FAF98", alignSelf: "center" }}
-              >
-              <Text>{strIngrediente}</Text>
-            </Item>
-          </View>
-          <View style={{height:20}} />
-          <View full style={{flex:1,flexDirection:"row", height:40}}>
-            <View half>
-              <Item third rounded quantity>
-                <MaterialCommunityIcons name="numeric" size={20} color="white" />
-                <Input invert quantity placeholder="" value={this.props.quantidade} 
-                  keyboardType={'numeric'}
-                  onChangeText={(text) => this.props.setQuantidade(this, text)} />
-              </Item>
-            </View>
-            <View half>
-              <Button
-                  style={{ flex:1, backgroundColor: "#6FAF98", alignSelf: "center" }}
-                  onPress={() => this.openRight()}
-                >
-                <Text invert>{strMedidaFrom}</Text>
-              </Button>
-            </View>
-          </View>
-          <View
-            style={{
-              flex:1,
-              alignItems: "center",
-              backgroundColor: "transparent"
-            }}>
-            <View style={{height:20}} />
-            <Text title style={styles.text}>{is}</Text>
-            <View style={{ marginTop: 20 }} />
-            
-          </View>
-          <View full style={{flex:1,flexDirection:"row", height:40}}>
-            <View half style={{
-              flex:1,
-              alignItems: "center",
-              marginTop:30
-              }}>
-              <Text tab invert title>{this.props.resultado}</Text>
-            </View>
-            <View half>
-              <Button
-                  style={{ flex:1, backgroundColor: "#6FAF98", alignSelf: "center" }}
-                  onPress={() => this.openRight()}
-                >
-                <Text button invert>{strMedidaTo}</Text>
-              </Button>
-            </View>
-          </View>
-          <View style={{flex:1}}/>
-        </ImageBackground>
-      </Container> );
+          <Text style={styles.pageTitle}>Conversor de medidas</Text>
 
-    return (
-      <MySidebar 
-        contentView={ content }
-        leftView={<LeftSide onChoose={this.onChooseLeft}/>}
-        rightView={<RightSide onChooseFrom={this.onChooseRightFrom} onChooseTo={this.onChooseRightTo}/>}
-        ref={(ref) => this._mysidebar = ref}
-      />
 
+          <View style={{flex:1, height:30, flexDirection:'column', marginTop: 10, marginBottom:30, alignItems: 'center'}}>
+            <Text style={styles.labelComponent}>{strIngrediente}</Text>
+          </View>
+
+          <View style={styles.colsWrapper}>
+            <View style={styles.cols}>
+              <Text style={styles.labelComponent}>Converter de:</Text>
+              <Medidas2 />
+            </View>
+            <View style={styles.cols}>
+              <Text style={styles.labelComponent}>para:</Text>
+              <Medidas1 />
+            </View>
+          </View>
+
+          <View style={{flex:1, marginTop: 50, flexDirection:'column', alignItems: 'center'}}>
+            <Text style={styles.labelComponent}>Quantidade:</Text>
+            <Input  style={styles.qtd} placeholder="" value={this.props.quantidade} 
+              keyboardType={'numeric'}
+              onChangeText={(text) => this.props.setQuantidade(this, text)} />
+          </View>
+
+          <View style={{flex:1, width: '100%', marginTop: 10, alignItems: 'center'}}>
+            <Text style={{fontSize:20, color:'#DC7F9B'}} >{this.props.resultado}</Text>
+          </View>
+
+        </ImageBackground>        
+      </Container>
     );
+
+    if( this.state.fontLoaded ){
+      return (
+       content
+      );
+    }
+    else
+    {
+      return(
+        <Text>Loading . . .</Text>
+      );
+    }      
   }
 }
 
@@ -148,3 +140,4 @@ const mapDispatchToProps  = (dispatch) => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
+
