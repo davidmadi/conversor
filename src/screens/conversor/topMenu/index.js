@@ -46,7 +46,7 @@ class TopMenu extends Component {
                       name="log-in"
                       style={{ zIndex:20, color: "#000", fontSize: 20, height:30}}
                     />
-                    <Text title invert note style={{textAlign:'center', zIndex:20}}>
+                    <Text title invert note style={{textAlign:'center', color: "#000", zIndex:20}}>
                       {ingrediente.nome}
                     </Text>
                   </Item>

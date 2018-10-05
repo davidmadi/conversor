@@ -6,7 +6,8 @@ import { Container,
   Item,
   Input,
   Icon,
-  Text } from "native-base";
+  Text, 
+  Label} from "native-base";
 import { connect } from "react-redux";
 import MySidebar from '../../library/components/mySideBar';
 import LeftSide from './leftSide';
@@ -15,6 +16,11 @@ import TopMenu from './topMenu';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import ConversorAction from '../../library/actions/conversor';
 import { Font } from 'expo';
+import { KeyboardAvoidingView } from 'react-native';
+
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+
+
 
 import Ingredientes from './Ingredientes'
 import Medidas1 from './Medidas1'
@@ -74,37 +80,53 @@ class Home extends Component {
     let content = (
       <Container>
         <ImageBackground source={launchscreenBg} style={styles.backgroundImage} >
-          <View style={{height:20}} />
-          <TopMenu />
-          <Text style={styles.pageTitle}>Conversor de medidas</Text>
+          <KeyboardAwareScrollView>
+            <View style={{height:20, backgroundColor:'white'}} />
+            <TopMenu />
+            <Text style={styles.pageTitle}>Conversor de medidas</Text>
 
-
-          <View style={{flex:1, height:30, flexDirection:'column', marginTop: 10, marginBottom:30, alignItems: 'center'}}>
-            <Text style={styles.labelComponent}>{strIngrediente}</Text>
-          </View>
-
-          <View style={styles.colsWrapper}>
-            <View style={styles.cols}>
-              <Text style={styles.labelComponent}>Converter de:</Text>
-              <Medidas2 />
+            <View style={{flex:1, height:40, flexDirection:'column', marginTop: 0, marginBottom:0, alignItems: 'center'}}>
+              <Text style={styles.labelComponent}>{strIngrediente}</Text>
             </View>
-            <View style={styles.cols}>
-              <Text style={styles.labelComponent}>para:</Text>
-              <Medidas1 />
+
+            <View style={styles.colsWrapper}>
+              <View style={styles.cols}>
+                <Medidas1 />
+              </View>
+              <View style={styles.cols}>
+                {/* <Text style={styles.labelComponent}>para:</Text> */}
+                <Medidas2 />
+                
+              </View>
             </View>
-          </View>
+            <View style={{flex:1, height:20}} />
+            <View style={{flex:1, flexDirection:'column', alignItems: 'center'}}>
+              <Text style={styles.labelComponent}>Quantidade:</Text>
+            </View>
 
-          <View style={{flex:1, marginTop: 50, flexDirection:'column', alignItems: 'center'}}>
-            <Text style={styles.labelComponent}>Quantidade:</Text>
-            <Input  style={styles.qtd} placeholder="" value={this.props.quantidade} 
-              keyboardType={'numeric'}
-              onChangeText={(text) => this.props.setQuantidade(this, text)} />
-          </View>
+            <View style={{flex:2, flexDirection:'row', alignItems: 'center'}}>
+              <View style={{flex:1, flexDirection:'row', alignItems: 'center'}}>
+                <Button style={styles.signbutton}>
+                  <Text style={styles.signbuttontext}>-</Text>
+                </Button>
+                <Input  style={styles.qtd} placeholder="" value={this.props.quantidade} 
+                  keyboardType={'numeric'}
+                  onChangeText={(text) => this.props.setQuantidade(this, text)} />
+                <Button style={styles.signbutton}>
+                  <Text style={styles.signbuttontext}>+</Text>
+                </Button>
+              </View>
+              <View style={{flex:1, flexDirection:'row', alignItems: 'center'}}>
+                <View style={{flex:1, width: '100%', marginTop: 10, alignItems: 'center'}}>
+                  <Text style={{fontSize:30, textAlignVertical:'center', fontWeight:'2', color:'#DC7F9B'}} >=</Text>
+                </View>
+                <View style={{flex:1, width: '100%', marginTop: 10, alignItems: 'center'}}>
+                  <Text style={{fontSize:20, color:'#DC7F9B'}} >R{this.props.resultado}</Text>
+                </View>
+              </View>
+            </View>
 
-          <View style={{flex:1, width: '100%', marginTop: 10, alignItems: 'center'}}>
-            <Text style={{fontSize:20, color:'#DC7F9B'}} >{this.props.resultado}</Text>
-          </View>
-
+          </KeyboardAwareScrollView>
         </ImageBackground>        
       </Container>
     );

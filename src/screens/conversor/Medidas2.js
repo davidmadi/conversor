@@ -1,30 +1,42 @@
 import React from 'react'
 import { Dimensions,StyleSheet, Picker } from 'react-native'
+import Conversor from '../../library/conversor/index';
 
 const deviceHeight = Dimensions.get("window").height;
 const deviceWidth = Dimensions.get("window").width;
 
-class Medidas1 extends React.Component {
-    state = {medida2: ''}
-    // Medida 1
-    updatemedida2 = (medida2)=>{
-        this.setState({ medida2: medida2 })
-    }
-    render() {
-        return (
-            <Picker selectedValue={this.state.medida2} onValueChange={this.updatemedida2} style={styles.selectMedidas}>
-                <Picker.Item label="Colher" value="colher" style={styles.selected} />
-                <Picker.Item  label="Xícara" value="xicara" />
-            </Picker>
-        )
-    }
+class Medidas2 extends React.Component {
+
+  constructor(props){
+    super(props);
+    this.updateMedida2 = this.updateMedida2.bind(this);
+    this.conversor = new Conversor();
+    this.state = {medida2: ''}
+  }
+  // Medida 1
+  updateMedida2(medida2){
+    this.setState({ medida2: medida2 })
+  }
+
+  render() {
+    return (
+      <Picker 
+        selectedValue={this.state.medida2} 
+        onValueChange={this.updateMedida2} 
+        style={styles.selectMedidas}>
+        {this.conversor.getMedidas().map(c => {
+          return(<Picker.Item key={c} label={c.nome} value={c.nome} />);
+        })}
+      </Picker>
+    )
+  }
 }
 
 const styles = StyleSheet.create({
-    selectMedidas:{
-        width: deviceWidth * 0.45,
-        backgroundColor: '#FFF'
-    }
+  selectMedidas:{
+    width: deviceWidth * 0.45,
+    backgroundColor: '#FFF'
+  }
 })
 
-export default Medidas1;
+export default Medidas2;
