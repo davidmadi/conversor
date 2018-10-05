@@ -33,9 +33,20 @@ export default class ConversorAction
     });
   }
 
-  static recalcular(dispatch, _this){
-
+  static plusQuantidade(dispatch, _this){
+    dispatch(
+    {
+      type:"CONVERSOR_QUANTIDADE",
+      quantidade: parseInt(_this.props.quantidade) +1
+    });
   }
 
+  static minusQuantidade(dispatch, _this){
+    dispatch(
+    {
+      type:"CONVERSOR_QUANTIDADE",
+      quantidade: parseInt(_this.props.quantidade) - 1
+    });
+  }
 
 }

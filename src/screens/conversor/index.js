@@ -9,20 +9,12 @@ import { Container,
   Text, 
   Label} from "native-base";
 import { connect } from "react-redux";
-import MySidebar from '../../library/components/mySideBar';
-import LeftSide from './leftSide';
-import RightSide from './rightSide';
 import TopMenu from './topMenu';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
 import ConversorAction from '../../library/actions/conversor';
 import { Font } from 'expo';
-import { KeyboardAvoidingView } from 'react-native';
 
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
-
-
-import Ingredientes from './Ingredientes'
 import Medidas1 from './Medidas1'
 import Medidas2 from './Medidas2'
 
@@ -106,13 +98,13 @@ class Home extends Component {
 
             <View style={{flex:2, flexDirection:'row', alignItems: 'center'}}>
               <View style={{flex:1, flexDirection:'row', alignItems: 'center'}}>
-                <Button style={styles.signbutton}>
+                <Button style={styles.signbutton} onPress={this.props.plusQuantidade(this)}>
                   <Text style={styles.signbuttontext}>-</Text>
                 </Button>
                 <Input  style={styles.qtd} placeholder="" value={this.props.quantidade} 
                   keyboardType={'numeric'}
                   onChangeText={(text) => this.props.setQuantidade(this, text)} />
-                <Button style={styles.signbutton}>
+                <Button style={styles.signbutton} onPress={this.props.plusQuantidade(this)}>
                   <Text style={styles.signbuttontext}>+</Text>
                 </Button>
               </View>
@@ -121,7 +113,7 @@ class Home extends Component {
                   <Text style={{fontSize:30, textAlignVertical:'center', fontWeight:'2', color:'#DC7F9B'}} >=</Text>
                 </View>
                 <View style={{flex:1, width: '100%', marginTop: 10, alignItems: 'center'}}>
-                  <Text style={{fontSize:20, color:'#DC7F9B'}} >R{this.props.resultado}</Text>
+                  <Text style={{fontSize:20, color:'#DC7F9B'}}>{this.props.resultado}</Text>
                 </View>
               </View>
             </View>
@@ -158,7 +150,19 @@ const mapStateToProps = (allReducers) => ({
 const mapDispatchToProps  = (dispatch) => ({
   setQuantidade : (_this, text) => {     
     ConversorAction.setQuantidade(dispatch, _this, text);
-  }
+  },
+  setMedidaFrom :(_this, medida)=> {
+    ConversorAction.setMedidaFrom(dispatch, _this, medida);
+  },
+  setMedidaTo :(_this, medida)=> {
+    ConversorAction.setMedidaTo(dispatch, _this, medida);
+  },
+  plusQuantidade :(_this)=> {
+    ConversorAction.plusQuantidade(dispatch, _this, medida);
+  },
+  minusQuantidade :(_this)=> {
+    ConversorAction.minusQuantidade(dispatch, _this, medida);
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
