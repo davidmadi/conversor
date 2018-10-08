@@ -98,19 +98,19 @@ class Home extends Component {
 
             <View style={{flex:2, flexDirection:'row', alignItems: 'center'}}>
               <View style={{flex:1, flexDirection:'row', alignItems: 'center'}}>
-                <Button style={styles.signbutton} onPress={this.props.plusQuantidade(this)}>
+                <Button style={styles.signbutton} onPress={() => this.props.minusQuantidade(this)}>
                   <Text style={styles.signbuttontext}>-</Text>
                 </Button>
                 <Input  style={styles.qtd} placeholder="" value={this.props.quantidade} 
                   keyboardType={'numeric'}
                   onChangeText={(text) => this.props.setQuantidade(this, text)} />
-                <Button style={styles.signbutton} onPress={this.props.plusQuantidade(this)}>
+                <Button style={styles.signbutton} onPress={() => this.props.plusQuantidade(this)}>
                   <Text style={styles.signbuttontext}>+</Text>
                 </Button>
               </View>
               <View style={{flex:1, flexDirection:'row', alignItems: 'center'}}>
                 <View style={{flex:1, width: '100%', marginTop: 10, alignItems: 'center'}}>
-                  <Text style={{fontSize:30, textAlignVertical:'center', fontWeight:'2', color:'#DC7F9B'}} >=</Text>
+                  <Text style={{fontSize:30, textAlignVertical:'center', color:'#DC7F9B'}} >=</Text>
                 </View>
                 <View style={{flex:1, width: '100%', marginTop: 10, alignItems: 'center'}}>
                   <Text style={{fontSize:20, color:'#DC7F9B'}}>{this.props.resultado}</Text>
@@ -158,10 +158,10 @@ const mapDispatchToProps  = (dispatch) => ({
     ConversorAction.setMedidaTo(dispatch, _this, medida);
   },
   plusQuantidade :(_this)=> {
-    ConversorAction.plusQuantidade(dispatch, _this, medida);
+    ConversorAction.plusQuantidade(dispatch, _this);
   },
   minusQuantidade :(_this)=> {
-    ConversorAction.minusQuantidade(dispatch, _this, medida);
+    ConversorAction.minusQuantidade(dispatch, _this);
   },
 });
 

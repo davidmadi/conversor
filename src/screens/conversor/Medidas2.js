@@ -17,13 +17,14 @@ class Medidas2 extends React.Component {
   }
   // Medida 1
   updateMedida2(medida2){
-    this.setMedidaTo(this, medida2);
+    this.props.setMedidaTo(this, medida2);
   }
 
   render() {
+    let medida = (this.props.medidaTo) ? this.props.medidaTo : this.state.medida2;
     return (
       <Picker 
-        selectedValue={this.state.medida2} 
+        selectedValue={medida} 
         onValueChange={this.updateMedida2} 
         style={styles.selectMedidas}>
         {this.conversor.getMedidas().map(c => {
@@ -43,7 +44,7 @@ const styles = StyleSheet.create({
 
 
 const mapStateToProps = (allReducers) => ({
-  medidaFrom : allReducers.conversorReducer.medidaFrom,
+  medidaTo : allReducers.conversorReducer.medidaTo,
 });
 
 const mapDispatchToProps  = (dispatch) => ({

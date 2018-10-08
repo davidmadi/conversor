@@ -17,13 +17,14 @@ class Medidas1 extends React.Component {
   }
   // Medida 1
   updateMedida1(medida1){
-    this.setMedidaFrom(this, medida1);
+    this.props.setMedidaFrom(this, medida1);
   }
 
   render() {
+    let medida = (this.props.medidaFrom) ?this.props.medidaFrom : this.state.medida1;
     return (
       <Picker 
-        selectedValue={this.state.medida1} 
+        selectedValue={medida} 
         onValueChange={this.updateMedida1} 
         style={styles.selectMedidas}>
         {this.conversor.getMedidas().map(c => {
