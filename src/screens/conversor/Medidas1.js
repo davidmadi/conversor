@@ -16,19 +16,20 @@ class Medidas1 extends React.Component {
     this.state = {medida1: this.conversor.getMedidas()[0]}
   }
   // Medida 1
-  updateMedida1(medida1){
-    this.props.setMedidaFrom(this, medida1);
+  updateMedida1(nomeMedida){
+    let medidaEscolhida = this.conversor.getMedidas().find(m => m.nome == nomeMedida);
+    this.props.setMedidaFrom(this, medidaEscolhida);
   }
 
   render() {
-    let medida = (this.props.medidaFrom) ?this.props.medidaFrom : this.state.medida1;
+    let medida = (this.props.medidaFrom) ? this.props.medidaFrom : this.state.medida1;
     return (
       <Picker 
-        selectedValue={medida} 
+        selectedValue={medida.nome} 
         onValueChange={this.updateMedida1} 
         style={styles.selectMedidas}>
         {this.conversor.getMedidas().map(c => {
-          return(<Picker.Item key={c} label={c.nome} value={c} />);
+          return(<Picker.Item key={c} label={c.nome} value={c.nome} />);
         })}
       </Picker>
     )

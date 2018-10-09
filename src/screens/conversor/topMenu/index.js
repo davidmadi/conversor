@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Image, ScrollView } from "react-native";
+import { ImageBackground, ScrollView } from "react-native";
 import {
   Content,
   Text,
@@ -34,21 +34,22 @@ class TopMenu extends Component {
       <View style={{backgroundColor:'transparent'}}>
         <ScrollView 
           horizontal={true}
-          style={{zIndex:20,backgroundColor:'transparent', height:100}}>
+          style={{zIndex:20,backgroundColor:'transparent', height:81}}>
             {this.props.allIngredientes.map(ingrediente => {
               return (
                 <View key={ingrediente.nome + ingrediente.selecionado}
-                style={{zIndex:20, width:100, height:100}}>
+                style={{zIndex:20, width:80, height:81}}>
                   <Item style={{borderColor:'#000', borderWidth:1, alignContent:'center', alignItems:'center', flexDirection:"column"}}
                     onPress={() => this.props.setIngrediente(this, ingrediente)}>
-                    <Icon
+                    <ImageBackground
                       active
-                      name="log-in"
-                      style={{ zIndex:20, color: "#000", fontSize: 20, height:30}}
-                    />
-                    <Text title invert note style={{textAlign:'center', color: "#000", zIndex:20}}>
-                      {ingrediente.nome}
-                    </Text>
+                      src
+                      source={ingrediente.imagem}
+                        style={{ zIndex:20, color: "#000", fontSize: 20, width:49, top:5, height:50}}>
+                      <Text title invert note style={{top:ingrediente.top, textAlign:'center', color: "#000", zIndex:20}}>
+                        {ingrediente.nome}
+                      </Text>
+                    </ImageBackground>
                   </Item>
                 </View>
               );
