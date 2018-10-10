@@ -87,12 +87,12 @@ class Home extends Component {
 
             <View style={styles.colsWrapper}>
               <View style={styles.cols}>
-                <Text style={styles.labelComponent}>De</Text>
+                <Text style={styles.smallLabelComponent}>De</Text>
                 <Medidas1 />
               </View>
               <View style={styles.cols}>
                 {/* <Text style={styles.labelComponent}>para:</Text> */}
-                <Text style={styles.labelComponent}>Para</Text>
+                <Text style={styles.smallLabelComponent}>Para</Text>
                 <Medidas2 />
                 
               </View>

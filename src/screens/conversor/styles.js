@@ -43,6 +43,12 @@ export default StyleSheet.create({
     marginBottom: 10,
     color: '#DC7F9B',
   },
+  smallLabelComponent:{
+    flex:1,
+    fontSize: 18,
+    marginBottom: 10,
+    color: '#DC7F9B',
+  },
   qtd:{
     width: '100%',
     alignItems:'center',

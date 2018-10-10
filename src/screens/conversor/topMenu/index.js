@@ -46,7 +46,7 @@ class TopMenu extends Component {
                       src
                       source={ingrediente.imagem}
                         style={{ zIndex:20, color: "#000", fontSize: 20, width:49, top:5, height:50}}>
-                      <Text title invert note style={{top:ingrediente.top, textAlign:'center', color: "#000", zIndex:20}}>
+                      <Text title invert note style={{textAlignVertical:'bottom', lineHeight:81, width:80, textAlign:'center', color: "#000", zIndex:20}}>
                         {ingrediente.nome}
                       </Text>
                     </ImageBackground>

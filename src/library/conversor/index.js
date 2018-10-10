@@ -251,7 +251,7 @@ class Ingrediente {
     this.liquido = liquido;
     this.conversao = conversao;
     this.imagem = imagem;
-    this.top=top;
+    this.top = top;
   }
 }
 
