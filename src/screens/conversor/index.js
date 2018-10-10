@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { ImageBackground, View, StatusBar } from "react-native";
+import { ImageBackground, View, StatusBar, Platform } from "react-native";
 import { Container, 
   Button, 
   H3, 
@@ -68,12 +68,16 @@ class Home extends Component {
     let strMedidaFrom = (this.props.medidaFrom) ? this.props.medidaFrom.nome : "   DE   "
     let strMedidaTo = (this.props.medidaTo) ? this.props.medidaTo.nome : "  PARA  "
     let is = "é";
+    let isAndroid = (Platform.OS === "Android") ? true : false;
 
     let content = (
       <Container>
         <ImageBackground source={launchscreenBg} style={styles.backgroundImage} >
           <KeyboardAwareScrollView>
-            <View style={{height:20, backgroundColor:'white'}} />
+            {isAndroid ? 
+              <View style={{height:20, backgroundColor:'white'}} />
+            : <View/>
+            }
             <TopMenu />
             <Text style={styles.pageTitle}>Conversor de medidas</Text>
 
@@ -83,10 +87,12 @@ class Home extends Component {
 
             <View style={styles.colsWrapper}>
               <View style={styles.cols}>
+                <Text style={styles.labelComponent}>De</Text>
                 <Medidas1 />
               </View>
               <View style={styles.cols}>
                 {/* <Text style={styles.labelComponent}>para:</Text> */}
+                <Text style={styles.labelComponent}>Para</Text>
                 <Medidas2 />
                 
               </View>
@@ -96,24 +102,24 @@ class Home extends Component {
               <Text style={styles.labelComponent}>Quantidade:</Text>
             </View>
 
-            <View style={{flex:2, flexDirection:'row', alignItems: 'center'}}>
+            <View style={{flex:2, margin:10, flexDirection:'row', alignItems: 'center'}}>
               <View style={{flex:1, flexDirection:'row', alignItems: 'center'}}>
-                <Button style={styles.signbutton} onPress={this.props.plusQuantidade(this)}>
+                <Button style={styles.signbutton} onPress={() => this.props.minusQuantidade(this)}>
                   <Text style={styles.signbuttontext}>-</Text>
                 </Button>
                 <Input  style={styles.qtd} placeholder="" value={this.props.quantidade} 
                   keyboardType={'numeric'}
                   onChangeText={(text) => this.props.setQuantidade(this, text)} />
-                <Button style={styles.signbutton} onPress={this.props.plusQuantidade(this)}>
+                <Button style={styles.signbutton} onPress={() => this.props.plusQuantidade(this)}>
                   <Text style={styles.signbuttontext}>+</Text>
                 </Button>
               </View>
               <View style={{flex:1, flexDirection:'row', alignItems: 'center'}}>
-                <View style={{flex:1, width: '100%', marginTop: 10, alignItems: 'center'}}>
-                  <Text style={{fontSize:30, textAlignVertical:'center', fontWeight:'2', color:'#DC7F9B'}} >=</Text>
+                <View style={{flex:1, width: '100%', marginTop: 0, alignItems: 'center'}}>
+                  <Text style={{fontSize:30, textAlignVertical:'center', fontWeight:'200', color:'#DC7F9B'}} >=</Text>
                 </View>
-                <View style={{flex:1, width: '100%', marginTop: 10, alignItems: 'center'}}>
-                  <Text style={{fontSize:20, color:'#DC7F9B'}}>{this.props.resultado}</Text>
+                <View style={{flex:1, width: '100%', marginTop: 0, alignItems: 'center'}}>
+                  <Text style={{fontSize:20, color:'#DC7F9B'}}>1/4 xicara</Text>
                 </View>
               </View>
             </View>
@@ -158,10 +164,10 @@ const mapDispatchToProps  = (dispatch) => ({
     ConversorAction.setMedidaTo(dispatch, _this, medida);
   },
   plusQuantidade :(_this)=> {
-    ConversorAction.plusQuantidade(dispatch, _this, medida);
+    ConversorAction.plusQuantidade(dispatch, _this);
   },
   minusQuantidade :(_this)=> {
-    ConversorAction.minusQuantidade(dispatch, _this, medida);
+    ConversorAction.minusQuantidade(dispatch, _this);
   },
 });
 

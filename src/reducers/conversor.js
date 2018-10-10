@@ -46,7 +46,7 @@ export default (state = initialState(), action) =>{//sem nome mesmo
       state = map.toObject();
       break;
     case 'CONVERSOR_QUANTIDADE':
-      state = map.set('quantidade', action.quantidade).toObject();
+      state = map.set('quantidade', action.quantidade + "").toObject();
       break;
     case 'CONVERSOR_RESULTADO':
       state = map.set('resultado', action.resultado).toObject();

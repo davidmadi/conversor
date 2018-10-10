@@ -34,19 +34,40 @@ export default class ConversorAction
   }
 
   static plusQuantidade(dispatch, _this){
-    dispatch(
-    {
+
+    let currQuantity = parseInt(_this.props.quantidade);
+    let add = ConversorAction.addQty(currQuantity);
+    currQuantity =  currQuantity + add;
+
+    dispatch({
       type:"CONVERSOR_QUANTIDADE",
-      quantidade: parseInt(_this.props.quantidade) +1
+      quantidade: currQuantity
     });
   }
 
   static minusQuantidade(dispatch, _this){
-    dispatch(
-    {
+
+    let currQuantity = parseInt(_this.props.quantidade);
+    let add = ConversorAction.addQty(currQuantity);
+    currQuantity =  currQuantity + (add * -1);
+
+    dispatch({
       type:"CONVERSOR_QUANTIDADE",
-      quantidade: parseInt(_this.props.quantidade) - 1
+      quantidade: currQuantity
     });
   }
 
+  static addQty(currQuantity){
+    if (currQuantity >= 1000){//1000
+      return 100;
+    }
+    else if (currQuantity > 99 && currQuantity < 1000){//100
+      return 10;
+    }
+    else if (currQuantity >= 50 && currQuantity < 99){
+      return 5;
+    }
+    else
+      return 1;
+  }
 }
