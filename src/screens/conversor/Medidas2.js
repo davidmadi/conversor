@@ -16,18 +16,20 @@ class Medidas2 extends React.Component {
     this.state = {medida2: this.conversor.getMedidas()[0]}
   }
   // Medida 1
-  updateMedida2(medida2){
-    this.setMedidaTo(this, medida2);
+  updateMedida2(nomeMedida){
+    let medidaEscolhida = this.conversor.getMedidas().find(m => m.nome == nomeMedida);
+    this.props.setMedidaTo(this, medidaEscolhida);
   }
 
   render() {
+    let medida = (this.props.medidaTo) ? this.props.medidaTo : this.state.medida2;
     return (
       <Picker 
-        selectedValue={this.state.medida2} 
+        selectedValue={medida.nome} 
         onValueChange={this.updateMedida2} 
         style={styles.selectMedidas}>
         {this.conversor.getMedidas().map(c => {
-          return(<Picker.Item key={c} label={c.nome} value={c} />);
+          return(<Picker.Item key={c} label={c.nome} value={c.nome} />);
         })}
       </Picker>
     )
@@ -43,7 +45,7 @@ const styles = StyleSheet.create({
 
 
 const mapStateToProps = (allReducers) => ({
-  medidaFrom : allReducers.conversorReducer.medidaFrom,
+  medidaTo : allReducers.conversorReducer.medidaTo,
 });
 
 const mapDispatchToProps  = (dispatch) => ({

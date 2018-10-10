@@ -50,7 +50,6 @@ export default StyleSheet.create({
   },
   signbutton:{
     flex:1,
-    textAlign:'center',
     backgroundColor:'#DC7F9B'
   },
   signbuttontext:{
