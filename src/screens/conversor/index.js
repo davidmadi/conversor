@@ -81,9 +81,13 @@ class Home extends Component {
             }
             <TopMenu />
             <View style={{height:10}} />
-            <View style={{flex:2, height:40, flexDirection:'column', marginTop: 0, marginBottom:0, alignItems: 'center'}}>
-              <Text style={styles.labelComponent}>{strIngrediente}</Text>
+            <View style={{flex:2, padding:5, margin:10, flexDirection:'row', alignItems: 'center', borderWidth:2, borderColor:'#DC7F9B'}}>
+              <View style={{flex:2, width: '100%', marginTop: 0, alignItems: 'center'}}>
+                <Text style={{fontSize:20, color:'#DC7F9B'}}>{this.props.resultado}</Text>
+                <Text style={{fontSize:20, color:'#DC7F9B'}}>{strMedidaTo}{strToSuffixo}</Text>
+              </View>
             </View>
+
 
             <View style={styles.colsWrapper}>
               <View style={styles.cols}>
@@ -99,16 +103,9 @@ class Home extends Component {
             </View>
             <View style={{flex:2, height:20}} />
 
-            <View style={{flex:2, padding:5, margin:10, flexDirection:'row', alignItems: 'center', borderWidth:2, borderColor:'#DC7F9B'}}>
-              <View style={{flex:2, width: '100%', marginTop: 0, alignItems: 'center'}}>
-                <Text style={{fontSize:20, color:'#DC7F9B'}}>{this.props.resultado}</Text>
-                <Text style={{fontSize:20, color:'#DC7F9B'}}>{strMedidaTo}{strToSuffixo}</Text>
-              </View>
-            </View>
-
             <View style={{flex:2, height:20}} />
             <View style={{flex:2, flexDirection:'column', alignItems: 'center'}}>
-              <Text style={styles.labelComponent}>É</Text>
+              <Text style={styles.labelComponent}>=</Text>
             </View>
             <View style={{flex:2, marginLeft:10, marginRight:10, marginTop:10, flexDirection:'row', alignItems: 'center'}}>
               <Button style={styles.signbutton} onPress={() => this.props.minusQuantidade(this)}>

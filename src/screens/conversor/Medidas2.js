@@ -43,7 +43,7 @@ class Medidas2 extends React.Component {
 const styles = StyleSheet.create({
   selectMedidas:{
     width: deviceWidth * 0.45,
-    backgroundColor: '#FFF'
+    backgroundColor: 'transparent'
   }
 })
 
