@@ -21,6 +21,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
+    marginTop:20
   },
   cols:{
     flex: 1,
@@ -55,7 +56,7 @@ export default StyleSheet.create({
   },
   signbutton:{
     flex:1,
-    backgroundColor:'#DC7F9B'
+    backgroundColor:'#aee8d2'
   },
   signbuttontext:{
     flex:1,

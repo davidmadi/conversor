@@ -83,8 +83,8 @@ class Home extends Component {
             <View style={{height:10}} />
             <View style={{flex:2, padding:5, margin:10, flexDirection:'row', alignItems: 'center', borderWidth:2, borderColor:'#DC7F9B'}}>
               <View style={{flex:2, width: '100%', marginTop: 0, alignItems: 'center'}}>
-                <Text style={{fontSize:20, color:'#DC7F9B'}}>{this.props.resultado}</Text>
-                <Text style={{fontSize:20, color:'#DC7F9B'}}>{strMedidaTo}{strToSuffixo}</Text>
+                <Text style={{fontSize:20, color:'#000'}}>{this.props.resultado}</Text>
+                <Text style={{fontSize:20, color:'#000'}}>{strMedidaTo}{strToSuffixo}</Text>
               </View>
             </View>
 
