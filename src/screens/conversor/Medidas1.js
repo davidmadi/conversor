@@ -13,8 +13,12 @@ class Medidas1 extends React.Component {
     super(props);
     this.updateMedida1 = this.updateMedida1.bind(this);
     this.conversor = new Conversor();
-    this.state = {medida1: this.conversor.getMedidas()[0]}
   }
+
+  componentDidMount(){
+    this.props.setMedidaFrom(this, this.conversor.getMedidas()[0]);
+  }
+
   // Medida 1
   updateMedida1(nomeMedida){
     let medidaEscolhida = this.conversor.getMedidas().find(m => m.nome == nomeMedida);
@@ -22,10 +26,10 @@ class Medidas1 extends React.Component {
   }
 
   render() {
-    let medida = (this.props.medidaFrom) ? this.props.medidaFrom : this.state.medida1;
+    let medidaNome = (this.props.medidaFrom) ? this.props.medidaFrom.nome : null;
     return (
       <Picker 
-        selectedValue={medida.nome} 
+        selectedValue={medidaNome} 
         onValueChange={this.updateMedida1} 
         style={styles.selectMedidas}>
         {this.conversor.getMedidas().map(c => {

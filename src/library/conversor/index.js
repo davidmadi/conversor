@@ -16,30 +16,30 @@ export default class Conversor
 
   constructor(){
     ingredientes = [];
-    ingredientes.push(new Ingrediente("Açúcar", false, [180, 10, 5, 150], require('../../../assets/topmenu/acucar.png'), 50));
-    ingredientes.push(new Ingrediente("Água", true, [240, 15, 2.5, 200], require('../../../assets/topmenu/agua.png'), 50));
-    ingredientes.push(new Ingrediente("Amendoim cru", false, [160, 10, 5, 120], null, 35));
-    ingredientes.push(new Ingrediente("Amido de milho", false, [120, 5, 2.5, 100], null, 35));
-    ingredientes.push(new Ingrediente("Arroz arborio cru", false, [210, 10, 5, 150], null, 35));
-    ingredientes.push(new Ingrediente("Arroz cru", false, [175, 15, 5, 155], null, 35));
-    ingredientes.push(new Ingrediente("Aveia em flocos finos", false, [115, 5, 2.5, 85], null, 35));
-    ingredientes.push(new Ingrediente("Café pronto", true, [240, 15, 5, 200], null, 35));
-    ingredientes.push(new Ingrediente("Cebola picadinha", false, [110, 10, 5, 90], null, 35));
-    ingredientes.push(new Ingrediente("Chocolate em pó / Cacau / Achocolatado", false, [100, 10, 5, 80], null, 35));
-    ingredientes.push(new Ingrediente("Creme de leite de caixinha", true, [240, 15, 5, 200], null, 35));
-    ingredientes.push(new Ingrediente("Creme de leite fresco", true, [240, 15, 5, 200], null, 35));
-    ingredientes.push(new Ingrediente("Farinha de rosca", false, [100, 5, 2.5, 70], null, 35));
-    ingredientes.push(new Ingrediente("Farinha de trigo", false, [140, 5, 2.5, 120], null, 35));
-    ingredientes.push(new Ingrediente("Feijão cru", false, [200, 10, 5, 160], null, 35));
-    ingredientes.push(new Ingrediente("Grão de bico cozido", false, [170, 20, 10, 130], null, 35));
-    ingredientes.push(new Ingrediente("Grão de bico cru", false, [195, 15, 5, 140], null, 35));
-    ingredientes.push(new Ingrediente("Leite", true, [240, 15, 5, 200], null, 35));
-    ingredientes.push(new Ingrediente("Leite condensado", true, [240, 15, 5, 200], null, 35));
-    ingredientes.push(new Ingrediente("Leite de coco", true, [240, 15, 10, 200], null, 35));
-    ingredientes.push(new Ingrediente("Milho cru", false, [200, 20, 10, 165], null, 35));
-    ingredientes.push(new Ingrediente("Passas", false, [140, 15, 5, 100], null, 35));
-    ingredientes.push(new Ingrediente("Polvilho doce e azedo", false, [155, 15, 2.5, 100], null, 35));
-    ingredientes.push(new Ingrediente("Sal grosso", false, [300, 20, 5, 210], null, 35));
+    ingredientes.push(new Ingrediente("Açúcar", false, [180, 10, 5, 150], require('../../../assets/topmenu/acucar.png'), 14));
+    ingredientes.push(new Ingrediente("Água", true, [240, 15, 2.5, 200], require('../../../assets/topmenu/agua.png'), 14));
+    ingredientes.push(new Ingrediente("Amendoim cru", false, [160, 10, 5, 120], null, 12));
+    ingredientes.push(new Ingrediente("Amido de milho", false, [120, 5, 2.5, 100], null, 12));
+    ingredientes.push(new Ingrediente("Arroz arborio cru", false, [210, 10, 5, 150], null, 12));
+    ingredientes.push(new Ingrediente("Arroz cru", false, [175, 15, 5, 155], null, 12));
+    ingredientes.push(new Ingrediente("Aveia em flocos finos", false, [115, 5, 2.5, 85], null, 12));
+    ingredientes.push(new Ingrediente("Café pronto", true, [240, 15, 5, 200], null, 12));
+    ingredientes.push(new Ingrediente("Cebola picadinha", false, [110, 10, 5, 90], null, 12));
+    ingredientes.push(new Ingrediente("Chocolate em pó / Cacau / Achocolatado", false, [100, 10, 5, 80], null, 12));
+    ingredientes.push(new Ingrediente("Creme de leite de caixinha", true, [240, 15, 5, 200], null, 12));
+    ingredientes.push(new Ingrediente("Creme de leite fresco", true, [240, 15, 5, 200], null, 12));
+    ingredientes.push(new Ingrediente("Farinha de rosca", false, [100, 5, 2.5, 70], null, 12));
+    ingredientes.push(new Ingrediente("Farinha de trigo", false, [140, 5, 2.5, 120], null, 12));
+    ingredientes.push(new Ingrediente("Feijão cru", false, [200, 10, 5, 160], null, 12));
+    ingredientes.push(new Ingrediente("Grão de bico cozido", false, [170, 20, 10, 130], null, 12));
+    ingredientes.push(new Ingrediente("Grão de bico cru", false, [195, 15, 5, 140], null, 12));
+    ingredientes.push(new Ingrediente("Leite", true, [240, 15, 5, 200], null, 14));
+    ingredientes.push(new Ingrediente("Leite condensado", true, [240, 15, 5, 200], null, 12));
+    ingredientes.push(new Ingrediente("Leite de coco", true, [240, 15, 10, 200], null, 12));
+    ingredientes.push(new Ingrediente("Milho cru", false, [200, 20, 10, 165], null, 12));
+    ingredientes.push(new Ingrediente("Passas", false, [140, 15, 5, 100], null, 14));
+    ingredientes.push(new Ingrediente("Polvilho doce e azedo", false, [155, 15, 2.5, 100], null, 12));
+    ingredientes.push(new Ingrediente("Sal grosso", false, [300, 20, 5, 210], null, 12));
     medidas = [];
     medidas.push(new Medida(PESO, "quilograma", "Kg", 1000, false));
     medidas.push(new Medida(PESO, "gramas", "g", 1, false));
@@ -245,13 +245,13 @@ export default class Conversor
 }
 
 class Ingrediente {
-  constructor(nome, liquido, conversao, imagem, top)
+  constructor(nome, liquido, conversao, imagem, font)
   {
     this.nome = nome;
     this.liquido = liquido;
     this.conversao = conversao;
     this.imagem = imagem;
-    this.top = top;
+    this.fontSize = font;
   }
 }
 

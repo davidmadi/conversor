@@ -30,7 +30,6 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
   pageTitle:{
-    fontFamily:'Riesling',
     fontSize: 40,
     lineHeight: 45,
     marginBottom: 10,
@@ -51,6 +50,7 @@ export default StyleSheet.create({
   },
   qtd:{
     width: '100%',
+    fontSize: 24,
     alignItems:'center',
     textAlign:'center'
   },

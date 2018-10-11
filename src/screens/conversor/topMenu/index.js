@@ -31,27 +31,27 @@ class TopMenu extends Component {
   render() {
     let wid = this.props.allIngredientes.length * 100;
     return (
-      <View style={{backgroundColor:'transparent'}}>
+      <View style={{backgroundColor:'transparent', marginTop:2}}>
         <ScrollView 
           horizontal={true}
-          style={{zIndex:20,backgroundColor:'transparent', height:81}}>
+          style={{zIndex:20, backgroundColor:'transparent', height:80}}>
             {this.props.allIngredientes.map(ingrediente => {
               return (
-                <View key={ingrediente.nome + ingrediente.selecionado}
-                style={{zIndex:20, width:80, height:81}}>
-                  <Item style={{borderColor:'#000', borderWidth:1, alignContent:'center', alignItems:'center', flexDirection:"column"}}
-                    onPress={() => this.props.setIngrediente(this, ingrediente)}>
+                <Item key={ingrediente.nome + ingrediente.selecionado}
+                  style={{margin:0}}
+                  onPress={() => this.props.setIngrediente(this, ingrediente)}>
+                  <View
+                    style={{zIndex:20, width:80, height:80, borderWidth:0, borderColor:'#000'}}>
                     <ImageBackground
-                      active
-                      src
-                      source={ingrediente.imagem}
-                        style={{ zIndex:20, color: "#000", fontSize: 20, width:49, top:5, height:50}}>
-                      <Text title invert note style={{textAlignVertical:'bottom', lineHeight:81, width:80, textAlign:'center', color: "#000", zIndex:20}}>
+                        active
+                        source={ingrediente.imagem}
+                        style={{ marginLeft:15, zIndex:20,  width:50, height:50}}>
+                    </ImageBackground>
+                    <Text title invert note style={{ fontSize:ingrediente.fontSize, width:80, textAlign:'center', color: "#000", zIndex:20}}>
                         {ingrediente.nome}
                       </Text>
-                    </ImageBackground>
-                  </Item>
-                </View>
+                  </View>
+                </Item>
               );
             })}
         </ScrollView>
