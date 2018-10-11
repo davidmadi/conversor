@@ -45,7 +45,6 @@ export default StyleSheet.create({
   smallLabelComponent:{
     flex:1,
     fontSize: 18,
-    marginBottom: 10,
     color: '#DC7F9B',
   },
   qtd:{

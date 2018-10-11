@@ -18,10 +18,10 @@ export default class Conversor
     ingredientes = [];
     ingredientes.push(new Ingrediente("Açúcar", false, [180, 10, 5, 150], require('../../../assets/topmenu/acucar.png'), 14));
     ingredientes.push(new Ingrediente("Água", true, [240, 15, 2.5, 200], require('../../../assets/topmenu/agua.png'), 14));
-    ingredientes.push(new Ingrediente("Amendoim cru", false, [160, 10, 5, 120], null, 12));
+    ingredientes.push(new Ingrediente("Amendoim cru", false, [160, 10, 5, 120], require('../../../assets/topmenu/amendoimcru.png'), 12));
     ingredientes.push(new Ingrediente("Amido de milho", false, [120, 5, 2.5, 100], null, 12));
-    ingredientes.push(new Ingrediente("Arroz arborio cru", false, [210, 10, 5, 150], null, 12));
-    ingredientes.push(new Ingrediente("Arroz cru", false, [175, 15, 5, 155], null, 12));
+    ingredientes.push(new Ingrediente("Arroz arborio cru", false, [210, 10, 5, 150], require('../../../assets/topmenu/arrozarborio.png'), 12));
+    ingredientes.push(new Ingrediente("Arroz cru", false, [175, 15, 5, 155], require('../../../assets/topmenu/arrozcru.png'), 12));
     ingredientes.push(new Ingrediente("Aveia em flocos finos", false, [115, 5, 2.5, 85], null, 12));
     ingredientes.push(new Ingrediente("Café pronto", true, [240, 15, 5, 200], null, 12));
     ingredientes.push(new Ingrediente("Cebola picadinha", false, [110, 10, 5, 90], null, 12));

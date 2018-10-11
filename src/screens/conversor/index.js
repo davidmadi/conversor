@@ -98,11 +98,8 @@ class Home extends Component {
                 {/* <Text style={styles.labelComponent}>para:</Text> */}
                 <Text style={styles.smallLabelComponent}>Para</Text>
                 <Medidas2 />
-                
               </View>
             </View>
-            <View style={{flex:2, height:20}} />
-
             <View style={{flex:2, height:20}} />
             <View style={{flex:2, flexDirection:'column', alignItems: 'center'}}>
               <Text style={styles.labelComponent}>=</Text>
