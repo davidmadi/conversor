@@ -9,7 +9,8 @@ export default StyleSheet.create({
   backgroundImage: {
     flex: 1,
     width: deviceWidth,
-    height: null
+    height: null,
+    backgroundColor:'#eafff2'
   },
   container: {
     flex: 1,
@@ -41,18 +42,23 @@ export default StyleSheet.create({
     flex:1,
     fontSize: 24,
     marginBottom: 10,
-    color: '#DC7F9B',
+    color: '#000',
   },
   smallLabelComponent:{
     flex:1,
     fontSize: 18,
     color: '#DC7F9B',
   },
+  blackSmallLabel :{
+    flex:1,
+    fontSize:18,
+    color:'#000'
+  },
   qtd:{
     width: '100%',
     fontSize: 24,
     alignItems:'center',
-    textAlign:'center'
+    textAlign:'center',
   },
   signbutton:{
     flex:1,
