@@ -34,7 +34,7 @@ class TopMenu extends Component {
       <View style={{backgroundColor:'transparent', marginTop:2}}>
         <ScrollView 
           horizontal={true}
-          style={{zIndex:20, backgroundColor:'transparent', height:80}}>
+          style={{zIndex:20, backgroundColor:'transparent', height:100}}>
             {this.props.allIngredientes.map(ingrediente => {
               return (
                 <Item key={ingrediente.nome + ingrediente.selecionado}

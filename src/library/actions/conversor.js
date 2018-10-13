@@ -35,7 +35,7 @@ export default class ConversorAction
 
   static plusQuantidade(dispatch, _this){
 
-    let currQuantity = parseInt(_this.props.quantidade);
+    let currQuantity = parseInt("0" + _this.props.quantidade);
     let add = ConversorAction.addQty(currQuantity);
     currQuantity =  currQuantity + add;
 
@@ -47,7 +47,7 @@ export default class ConversorAction
 
   static minusQuantidade(dispatch, _this){
 
-    let currQuantity = parseInt(_this.props.quantidade);
+    let currQuantity = parseInt("0" + _this.props.quantidade);
     let add = ConversorAction.addQty(currQuantity);
     currQuantity =  currQuantity + (add * -1);
 

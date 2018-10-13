@@ -1,5 +1,5 @@
-const ReactN = require("react-native");
 import React, { Component } from "react";
+
 import { ImageBackground, View, StatusBar, Platform } from "react-native";
 import { Container, 
   Button, 
@@ -13,26 +13,17 @@ import { connect } from "react-redux";
 import TopMenu from './topMenu';
 import ConversorAction from '../../library/actions/conversor';
 import { Font } from 'expo';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
-import Medidas1 from './MedidasFrom'
-import Medidas2 from './MedidasTo'
-import styles from "./styles";
-const { Dimensions } = ReactN;
 
-const deviceHeight = Dimensions.get("window").height;
-const deviceWidth = Dimensions.get("window").width;
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+
+import Medidas1 from './Medidas1'
+import Medidas2 from './Medidas2'
+
+
+import styles from "./styles";
 
 const launchscreenBg = require("../../../assets/bg.png");
 const launchscreenLogo = require("../../../assets/logo-kitchen-sink.png");
-const android = (Platform.OS != "ios") ? true : false;
-const divPlat = (android) ? 1 : 2;
-
-const height01 = parseInt(deviceHeight*0.01);
-const height05 = parseInt(deviceHeight*0.05);
-const height30 = parseInt(deviceHeight*0.3 );
-const height25 = parseInt(deviceHeight / 4 );
-const height20 = parseInt(deviceHeight*0.2 );
-const height10 = parseInt(deviceHeight*0.1 );
 
 class Home extends Component {
 
@@ -85,7 +76,7 @@ class Home extends Component {
 
     let strToSuffixo = (this.props.resultado) ? " de " + strIngrediente : "";
     let is = "é";
-    let isAndroid = (Platform.OS != "ios") ? true : false;
+    let isAndroid = (Platform.OS === "Android") ? true : false;
 
     let content = (
       <Container>
@@ -96,24 +87,20 @@ class Home extends Component {
             : <View style={{height:20, backgroundColor:'white'}} />
             }
             <TopMenu />
-            <View style={{height:5}} />
+            <View style={{height:10}} />
 
             <View style={styles.colsWrapper}>
               <View style={styles.cols}>
-                <View style={{height:height05}}>
-                  <Text style={styles.blackSmallLabel}>De{styles.height05}</Text>
-                </View>
+                <Text style={styles.blackSmallLabel}>De</Text>
                 <Medidas1 />
               </View>
               <View style={styles.cols}>
                 {/* <Text style={styles.labelComponent}>para:</Text> */}
-                <View style={{height:height05}}>
-                  <Text style={styles.smallLabelComponent}>Para</Text>
-                </View>
+                <Text style={styles.smallLabelComponent}>Para</Text>
                 <Medidas2 />
               </View>
             </View>
-            <View style={{marginTop:5, flex:2, height:height05, flexDirection:'column', alignItems: 'center'}}>
+            <View style={{flex:2, flexDirection:'column', alignItems: 'center'}}>
               <Text style={{fontSize:20, color:'#000'}}>{strIngrediente}</Text>
             </View>
             <View style={{flex:2, marginLeft:10, marginRight:10, marginTop:10, flexDirection:'row', alignItems: 'center'}}>
@@ -130,13 +117,15 @@ class Home extends Component {
             <View style={{flex:2, flexDirection:'column', alignItems: 'center'}}>
               <Text style={styles.labelComponent}>{strMedidaFrom}</Text>
             </View>
-            <View style={{flex:2, height:height05, flexDirection:'column', alignItems: 'center'}}>
+
+            <View style={{flex:2, height:20}} />
+            <View style={{flex:2, flexDirection:'column', alignItems: 'center'}}>
               <Text style={styles.labelComponent}>=</Text>
             </View>
 
             <View style={{flex:2, padding:5, margin:10, flexDirection:'row', alignItems: 'center', borderWidth:1, borderColor:'#DC7F9B'}}>
               <View style={{flex:2, width: '100%', marginTop: 0, alignItems: 'center'}}>
-                <Text style={{fontSize:24, color:'#DC7F9B'}}>{this.props.resultado} {strMedidaTo}</Text>
+                <Text style={{fontSize:20, color:'#DC7F9B'}}>{this.props.resultado} {strMedidaTo}</Text>
               </View>
             </View>
             

@@ -29,7 +29,7 @@ export default StyleSheet.create({
     width: deviceWidth/2,
     marginTop: 0,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
   pageTitle:{
     fontSize: 40,
