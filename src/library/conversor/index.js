@@ -41,12 +41,12 @@ export default class Conversor
     ingredientes.push(new Ingrediente("Polvilho doce e azedo", false, [155, 15, 2.5, 100], null, 12));
     ingredientes.push(new Ingrediente("Sal grosso", false, [300, 20, 5, 210], null, 12));
     medidas = [];
-    medidas.push(new Medida(PESO, "quilograma", "Kg", 1000, false));
-    medidas.push(new Medida(PESO, "gramas", "g", 1, false));
-    medidas.push(new Medida(VOLUME, "Xícara (chá)", "", 0, false));
-    medidas.push(new Medida(VOLUME, "colher (sopa)", "", 1, false));
-    medidas.push(new Medida(VOLUME, "colher (chá)", "", 2, false));
-    medidas.push(new Medida(VOLUME, "copo (americano)", "", 3, false));  
+    medidas.push(new Medida(PESO, "quilograma", "Kg", 1000, false, "quilogramas"));
+    medidas.push(new Medida(PESO, "grama", "g", 1, false, "gramas"));
+    medidas.push(new Medida(VOLUME, "Xícara (chá)", "", 0, false, "Xícaras (chá)"));
+    medidas.push(new Medida(VOLUME, "colher (sopa)", "", 1, false, "colheres (sopa)"));
+    medidas.push(new Medida(VOLUME, "colher (chá)", "", 2, false, "colheres (chá)"));
+    medidas.push(new Medida(VOLUME, "copo (americano)", "", 3, false, "copos (americano)"));  
   }
 
   getIngredientes(){
@@ -257,13 +257,14 @@ class Ingrediente {
 
 class Medida {
 
-  constructor(tipo, nome, abreviacao, conversao, liquido)
+  constructor(tipo, nome, abreviacao, conversao, liquido, plural)
   {
     this.tipo = tipo;
     this.nome = nome;
     this.abreviacao = abreviacao;
     this.conversao = conversao;
     this.liquido = liquido;
+    this.plural = plural;
   }
   
 }
