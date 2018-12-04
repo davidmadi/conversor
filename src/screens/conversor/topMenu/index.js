@@ -13,6 +13,7 @@ import {
 } from "native-base";
 import { connect } from "react-redux";
 import ConversorAction from '../../../library/actions/conversor';
+import ResourceAction from '../../../library/actions/resource';
 
 class TopMenu extends Component {
   constructor(props) {
@@ -36,6 +37,11 @@ class TopMenu extends Component {
           horizontal={true}
           style={{zIndex:20, backgroundColor:'transparent', height:100}}>
             {this.props.allIngredientes.map(ingrediente => {
+              var selected = ( this.props.ingrediente &&  ingrediente.nome == this.props.ingrediente.nome );
+              var notSelectedStyle = { marginLeft:15, zIndex:20,  width:50, height:50};
+              var selectedStyle = {borderWidth:1, borderColor:'#000', marginLeft:15, zIndex:20,  width:50, height:50};
+              var styleItem = (selected) ? selectedStyle :notSelectedStyle;
+
               return (
                 <Item key={ingrediente.nome + ingrediente.selecionado}
                   style={{margin:0}}
@@ -45,10 +51,10 @@ class TopMenu extends Component {
                     <ImageBackground
                         active
                         source={ingrediente.imagem}
-                        style={{ marginLeft:15, zIndex:20,  width:50, height:50}}>
+                        style={styleItem}>
                     </ImageBackground>
                     <Text title invert note style={{ fontSize:ingrediente.fontSize, width:80, textAlign:'center', color: "#000", zIndex:20}}>
-                        {ingrediente.nome}
+                        {ResourceAction.message(ingrediente.nome, this.props.languageReducer)}
                       </Text>
                   </View>
                 </Item>
@@ -68,6 +74,7 @@ const mapStateToProps = (allReducers) => ({
   medidaFrom : allReducers.conversorReducer.medidaFrom,
   medidaTo : allReducers.conversorReducer.medidaTo,
   quantidade : allReducers.conversorReducer.quantidade,
+  languageReducer : allReducers.languageReducer
 });
 
 

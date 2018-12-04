@@ -17,6 +17,10 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import Medidas1 from './MedidasFrom'
 import Medidas2 from './MedidasTo'
 import styles from "./styles";
+import { NativeModules, ExponentLocalization } from 'react-native'
+import ResourceAction from '../../library/actions/resource';
+
+
 const { Dimensions } = ReactN;
 
 const deviceHeight = Dimensions.get("window").height;
@@ -51,7 +55,7 @@ class Home extends Component {
     await Font.loadAsync({
       'Riesling': require('../../../assets/fonts/riesling.ttf')
     });
-    
+
     this.setState({ fontLoaded: true });
   }
   
@@ -79,12 +83,10 @@ class Home extends Component {
     if (this.props.medidaFrom)
       strMedidaFrom = (this.props.quantidade > 1) ? this.props.medidaFrom.plural : this.props.medidaFrom.nome;
 
-    let strMedidaTo = "escolha um ingrediente";
+    let strMedidaTo = ResourceAction.message("escolha um ingrediente", this.props.languageReducer);
     if (this.props.resultado)
-      strMedidaTo = (this.props.resultado === "1") ? this.props.medidaTo.nome : this.props.medidaTo.plural;
+      strMedidaTo = ResourceAction.message((this.props.resultado === "1") ? this.props.medidaTo.nome : this.props.medidaTo.plural);
 
-    let strToSuffixo = (this.props.resultado) ? " de " + strIngrediente : "";
-    let is = "é";
     let isAndroid = (Platform.OS != "ios") ? true : false;
 
     let content = (
@@ -101,14 +103,14 @@ class Home extends Component {
             <View style={styles.colsWrapper}>
               <View style={styles.cols}>
                 <View style={{height:height05}}>
-                  <Text style={styles.blackSmallLabel}>De{styles.height05}</Text>
+          <Text style={styles.blackSmallLabel}>{ResourceAction.message("De", this.props.languageReducer)} {styles.height05}</Text>
                 </View>
                 <Medidas1 />
               </View>
               <View style={styles.cols}>
                 {/* <Text style={styles.labelComponent}>para:</Text> */}
                 <View style={{height:height05}}>
-                  <Text style={styles.smallLabelComponent}>Para</Text>
+                  <Text style={styles.smallLabelComponent}>{ResourceAction.message("Para", this.props.languageReducer)}</Text>
                 </View>
                 <Medidas2 />
               </View>
@@ -169,6 +171,7 @@ const mapStateToProps = (allReducers) => ({
   medidaTo : allReducers.conversorReducer.medidaTo,
   quantidade : allReducers.conversorReducer.quantidade,
   resultado : allReducers.conversorReducer.resultado,
+  languageReducer : allReducers.languageReducer
 });
 
 const mapDispatchToProps  = (dispatch) => ({
@@ -183,6 +186,9 @@ const mapDispatchToProps  = (dispatch) => ({
   },
   plusQuantidade :(_this)=> {
     ConversorAction.plusQuantidade(dispatch, _this);
+    NativeModules.ExponentLocalization.getCurrentLocaleAsync().then((a) =>{
+      console.log(a);
+    });
   },
   minusQuantidade :(_this)=> {
     ConversorAction.minusQuantidade(dispatch, _this);
