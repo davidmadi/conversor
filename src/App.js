@@ -1,32 +1,19 @@
 import React from "react";
 import { Root } from "native-base";
 import { StackNavigator, DrawerNavigator } from "react-navigation";
-
-
-import Home from "./screens/home/";
-import SideBar from "./screens/sidebar";
 import Conversor from './screens/conversor';
+import Information from './screens/information';
+import Icon from './screens/icon/icon';
 
-const Drawer = DrawerNavigator(
-  {
-    Home: { screen: Home },
-    Conversor : {screen : Conversor},
-  },
-  {
-    initialRouteName: "Conversor",
-    contentOptions: {
-      activeTintColor: "#e91e63"
-    },
-    contentComponent: props => <SideBar {...props} />
-  }
-);
 
 const AppNavigator = StackNavigator(
   {
-    Drawer: { screen: Drawer },
+    Conversor : {screen : Conversor},
+    Information : {screen : Information},
+    Icon : {screen : Icon},
   },
   {
-    initialRouteName: "Drawer",
+    initialRouteName: "Conversor",
     headerMode: "none"
   }
 );

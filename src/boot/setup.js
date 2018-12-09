@@ -8,7 +8,7 @@ import variables from "../theme/variables/commonColor";
 import { createStore } from "redux";
 import { Provider } from 'react-redux';
 import reducer from "../reducers";
-import { NativeModules } from 'react-native'
+import ResourceAction from '../library/actions/resource';
 
 let generalStore = createStore(reducer);
 
@@ -28,10 +28,7 @@ export default class Setup extends Component {
       Roboto_medium: require("native-base/Fonts/Roboto_medium.ttf"),
       Ionicons: require("@expo/vector-icons/fonts/Ionicons.ttf")
     });
-    NativeModules.ExponentLocalization.getCurrentLocaleAsync().then((lang) =>{
-      generalStore.dispatch({type:lang});
-      console.log({type:lang});
-    });
+    ResourceAction.loadLanguage(generalStore.dispatch);
   
     this.setState({ isReady: true });
   }

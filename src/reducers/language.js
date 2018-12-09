@@ -8,13 +8,18 @@ function initialState(){
 }
 
 export default (state = initialState(), action) =>{//sem nome mesmo
-  switch (action.type) {
-    case 'pt':
-      state = all['pt'];
-      break;
-    default:
-      state = all['en'];
-      break;
+
+  if (action.type == 'LANGUAGE_RESOURCE')
+  {
+    switch (action.language) {
+      case 'pt':
+      case 'pt-BR':
+        state = all['pt'];
+        break;
+      default:
+        state = all['en'];
+        break;
+    }
   }
 
   return state;

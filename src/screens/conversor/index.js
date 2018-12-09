@@ -81,11 +81,11 @@ class Home extends Component {
     let strIngrediente = (this.props.ingrediente) ? this.props.ingrediente.nome : ""
     let strMedidaFrom = "";
     if (this.props.medidaFrom)
-      strMedidaFrom = (this.props.quantidade > 1) ? this.props.medidaFrom.plural : this.props.medidaFrom.nome;
+      strMedidaFrom = ResourceAction.message((this.props.quantidade > 1) ? this.props.medidaFrom.plural : this.props.medidaFrom.nome, this.props.languageReducer);
 
     let strMedidaTo = ResourceAction.message("escolha um ingrediente", this.props.languageReducer);
     if (this.props.resultado)
-      strMedidaTo = ResourceAction.message((this.props.resultado === "1") ? this.props.medidaTo.nome : this.props.medidaTo.plural);
+      strMedidaTo = ResourceAction.message((this.props.resultado === "1") ? this.props.medidaTo.nome : this.props.medidaTo.plural, this.props.languageReducer);
 
     let isAndroid = (Platform.OS != "ios") ? true : false;
 
@@ -103,7 +103,7 @@ class Home extends Component {
             <View style={styles.colsWrapper}>
               <View style={styles.cols}>
                 <View style={{height:height05}}>
-          <Text style={styles.blackSmallLabel}>{ResourceAction.message("De", this.props.languageReducer)} {styles.height05}</Text>
+                  <Text style={styles.blackSmallLabel}>{ResourceAction.message("De", this.props.languageReducer)} {styles.height05}</Text>
                 </View>
                 <Medidas1 />
               </View>
@@ -116,7 +116,7 @@ class Home extends Component {
               </View>
             </View>
             <View style={{marginTop:5, flex:2, height:height05, flexDirection:'column', alignItems: 'center'}}>
-              <Text style={{fontSize:20, color:'#000'}}>{strIngrediente}</Text>
+              <Text style={{fontSize:20, color:'#000'}}>{ResourceAction.message(strIngrediente, this.props.languageReducer)}</Text>
             </View>
             <View style={{flex:2, marginLeft:10, marginRight:10, marginTop:10, flexDirection:'row', alignItems: 'center'}}>
               <Button style={styles.signbutton} onPress={() => this.props.minusQuantidade(this)}>
@@ -136,12 +136,15 @@ class Home extends Component {
               <Text style={styles.labelComponent}>=</Text>
             </View>
 
-            <View style={{flex:2, padding:5, margin:10, flexDirection:'row', alignItems: 'center', borderWidth:1, borderColor:'#DC7F9B'}}>
-              <View style={{flex:2, width: '100%', marginTop: 0, alignItems: 'center'}}>
+            <View style={{flex:2, padding:5, marginTop:10, flexDirection:'row', alignItems: 'center', borderWidth:1, borderColor:'#DC7F9B'}}>
+              <View style={{flex:2, width: '100%', margin: 0, alignItems: 'center'}}>
                 <Text style={{fontSize:24, color:'#DC7F9B'}}>{this.props.resultado} {strMedidaTo}</Text>
               </View>
             </View>
             
+            <View style={{flex:2, flexDirection:'row', alignItems: 'right'}}>
+              <Icon style={{}} name="bulb" onPress={() => this.props.info(this)}/>
+            </View>
 
 
           </KeyboardAwareScrollView>
@@ -193,6 +196,9 @@ const mapDispatchToProps  = (dispatch) => ({
   minusQuantidade :(_this)=> {
     ConversorAction.minusQuantidade(dispatch, _this);
   },
+  info : (_this) =>{
+    _this.props.navigation.navigate("Information");
+  }
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

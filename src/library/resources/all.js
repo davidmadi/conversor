@@ -1,5 +1,6 @@
 module.exports = {
   en : {
+    languageChoosed : 'en',
     agua : 'water',
     De : 'From',
     de : 'from',
@@ -29,8 +30,24 @@ module.exports = {
     "Passas":'Raisin',
     "Polvilho doce e azedo":'Sprinkle',
     "Sal grosso" :'Coarse salt',
+    "quilograma": 'quilogram',
+    "quilogramas": 'quilograms',
+    "grama":'gram',
+    "gramas":'grams',
+    "xícara (chá)":'cup of tea',
+    "xícaras (chá)":'cups of tea',
+    "colher (sopa)":'soup spoon',
+    "colheres (sopa)":'soup spoons',
+    "colher (chá)":'tea spoon',
+    "colheres (chá)":'tea spoons',
+    "copo (americano)": 'small cup',
+    "copos (americano)": 'small cups',
+    "Configurações" : 'Configuration',
+    "Português" : 'Portuguese',
+    "Inglês" : 'English'
   },
   pt : {
+    languageChoosed : 'pt',
     agua : 'água'
   }
 }

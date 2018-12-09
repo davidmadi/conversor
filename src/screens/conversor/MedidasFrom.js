@@ -3,6 +3,7 @@ import { Dimensions,StyleSheet, ScrollView } from 'react-native'
 import { connect } from "react-redux";
 import Conversor from '../../library/conversor/index';
 import ConversorAction from '../../library/actions/conversor';
+import ResourceAction from '../../library/actions/resource';
 import {
   Content,
   Text,
@@ -58,7 +59,7 @@ class Medidas1 extends React.Component {
                     <Button rounded style={{alignSelf:"center", backgroundColor:backColor}}
                       onPress={() => this.updateMedida1(c.nome)}>
                       <Text title invert note style={{ marginTop:5, marginBottom:5, fontSize:15, textAlign:'center', color: "#000", zIndex:20}}>
-                        {c.nome}
+                        {ResourceAction.message(c.nome, this.props.languageReducer)}
                       </Text>
                     </Button>
                   </View>
@@ -81,6 +82,7 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = (allReducers) => ({
   medidaFrom : allReducers.conversorReducer.medidaFrom,
+  languageReducer : allReducers.languageReducer
 });
 
 const mapDispatchToProps  = (dispatch) => ({

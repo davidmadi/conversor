@@ -43,7 +43,7 @@ export default class Conversor
     medidas = [];
     medidas.push(new Medida(PESO, "quilograma", "Kg", 1000, false, "quilogramas"));
     medidas.push(new Medida(PESO, "grama", "g", 1, false, "gramas"));
-    medidas.push(new Medida(VOLUME, "Xícara (chá)", "", 0, false, "Xícaras (chá)"));
+    medidas.push(new Medida(VOLUME, "xícara (chá)", "", 0, false, "xícaras (chá)"));
     medidas.push(new Medida(VOLUME, "colher (sopa)", "", 1, false, "colheres (sopa)"));
     medidas.push(new Medida(VOLUME, "colher (chá)", "", 2, false, "colheres (chá)"));
     medidas.push(new Medida(VOLUME, "copo (americano)", "", 3, false, "copos (americano)"));  

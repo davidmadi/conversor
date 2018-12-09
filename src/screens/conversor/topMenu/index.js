@@ -38,21 +38,27 @@ class TopMenu extends Component {
           style={{zIndex:20, backgroundColor:'transparent', height:100}}>
             {this.props.allIngredientes.map(ingrediente => {
               var selected = ( this.props.ingrediente &&  ingrediente.nome == this.props.ingrediente.nome );
-              var notSelectedStyle = { marginLeft:15, zIndex:20,  width:50, height:50};
-              var selectedStyle = {borderWidth:1, borderColor:'#000', marginLeft:15, zIndex:20,  width:50, height:50};
-              var styleItem = (selected) ? selectedStyle :notSelectedStyle;
+              var styleImage = {marginLeft:0, zIndex:20,  width:50, height:50};
+              var viewBorderSelected = {borderWidth:2, borderColor:'#DC7F9B', borderRadius:50, padding:0};
+              var viewBorderNotSelected = {padding:2};
+              var viewCentered = {alignSelf:'center' };
+              var viewImage = (selected) ? viewBorderSelected : viewBorderNotSelected;
 
               return (
                 <Item key={ingrediente.nome + ingrediente.selecionado}
                   style={{margin:0}}
                   onPress={() => this.props.setIngrediente(this, ingrediente)}>
                   <View
-                    style={{zIndex:20, width:80, height:80, borderWidth:0, borderColor:'#000'}}>
-                    <ImageBackground
-                        active
-                        source={ingrediente.imagem}
-                        style={styleItem}>
-                    </ImageBackground>
+                    style={{ zIndex:20, width:80, height:80, borderWidth:0, borderColor:'#000'}}>
+                    <View style={viewCentered}>
+                      <View style={viewImage}>
+                        <ImageBackground
+                            active
+                            source={ingrediente.imagem}
+                            style={styleImage}>
+                        </ImageBackground>
+                      </View>
+                    </View>
                     <Text title invert note style={{ fontSize:ingrediente.fontSize, width:80, textAlign:'center', color: "#000", zIndex:20}}>
                         {ResourceAction.message(ingrediente.nome, this.props.languageReducer)}
                       </Text>
