@@ -43,11 +43,13 @@ module.exports = {
     "copo (americano)": 'small cup',
     "copos (americano)": 'small cups',
     "Configurações" : 'Configuration',
-    "Português" : 'Portuguese',
+    "Português" : 'Português',
     "Inglês" : 'English'
   },
   pt : {
     languageChoosed : 'pt',
-    agua : 'água'
+    agua : 'água',
+    "Português" : 'Português',
+    "Inglês" : 'English'    
   }
 }

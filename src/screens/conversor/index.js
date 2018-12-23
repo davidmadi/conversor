@@ -1,6 +1,6 @@
 const ReactN = require("react-native");
 import React, { Component } from "react";
-import { ImageBackground, View, StatusBar, Platform } from "react-native";
+import { Image, View, TouchableOpacity, Platform } from "react-native";
 import { Container, 
   Button, 
   H3, 
@@ -8,7 +8,8 @@ import { Container,
   Input,
   Icon,
   Text, 
-  Label} from "native-base";
+  Label,
+  Right} from "native-base";
 import { connect } from "react-redux";
 import TopMenu from './topMenu';
 import ConversorAction from '../../library/actions/conversor';
@@ -115,10 +116,10 @@ class Home extends Component {
                 <Medidas2 />
               </View>
             </View>
-            <View style={{marginTop:5, flex:2, height:height05, flexDirection:'column', alignItems: 'center'}}>
+            <View style={{marginTop:5, flex:2, height:height05, flexDirection:'column', alignItems:'center'}}>
               <Text style={{fontSize:20, color:'#000'}}>{ResourceAction.message(strIngrediente, this.props.languageReducer)}</Text>
             </View>
-            <View style={{flex:2, marginLeft:10, marginRight:10, marginTop:10, flexDirection:'row', alignItems: 'center'}}>
+            <View style={{flex:2, marginLeft:10, marginRight:10, marginTop:10, flexDirection:'row'}}>
               <Button style={styles.signbutton} onPress={() => this.props.minusQuantidade(this)}>
                 <Text style={styles.signbuttontext}>-</Text>
               </Button>
@@ -136,17 +137,19 @@ class Home extends Component {
               <Text style={styles.labelComponent}>=</Text>
             </View>
 
-            <View style={{flex:2, padding:5, marginTop:10, flexDirection:'row', alignItems: 'center', borderWidth:1, borderColor:'#DC7F9B'}}>
+            <View style={{flex:2, padding:5, marginTop:10, flexDirection:'row', alignItems: 'center', borderWidth:0, borderColor:'#DC7F9B'}}>
               <View style={{flex:2, width: '100%', margin: 0, alignItems: 'center'}}>
                 <Text style={{fontSize:24, color:'#DC7F9B'}}>{this.props.resultado} {strMedidaTo}</Text>
               </View>
             </View>
             
-            <View style={{flex:2, flexDirection:'row', alignItems: 'right'}}>
-              <Icon style={{}} name="bulb" onPress={() => this.props.info(this)}/>
+            <View style={{flex:2, flexDirection:'row'}}>
+              <Right>
+                <TouchableOpacity style={{marginRight:10}}   onPress={() => this.props.info(this)}>
+                  <Image style={{width:20, height:20}} source={require('../../../assets/icons/language_icon.jpg')}/>
+                </TouchableOpacity>
+              </Right>
             </View>
-
-
           </KeyboardAwareScrollView>
         </View>     
       </Container>

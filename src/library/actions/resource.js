@@ -1,20 +1,29 @@
 import { AsyncStorage } from "react-native"
 import { NativeModules } from 'react-native'
+const key = '@conversor::resource_language';
 
 export default class ResourceAction
 {
-
   static async loadLanguage(dispatch){
-    var languageSelected = await NativeModules.ExponentLocalization.getCurrentLocaleAsync();
-    
-    dispatch({type:'LANGUAGE_RESOURCE', language:languageSelected});
+    AsyncStorage.getItem(key)
+    .then((val) =>{
+      if (val)
+      {
+        dispatch({type:'LANGUAGE_RESOURCE', language:val});
+      }
+      else
+      {
+        NativeModules.ExponentLocalization.getCurrentLocaleAsync()
+        .then((languageSelected)=>{
+          ResourceAction.setLanguage(dispatch, languageSelected);
+        })
+      }
+    })
   }
 
-  static setLanguage(dispatch, language){
-    dispatch(
-    {
-      type:language
-    });
+  static setLanguage(dispatch, languageSelected){
+    AsyncStorage.setItem(key, languageSelected);
+    dispatch({type:'LANGUAGE_RESOURCE', language:languageSelected});
   }
 
   static message(value, languageReducer){
