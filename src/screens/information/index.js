@@ -48,15 +48,15 @@ class Information extends Component
           <Right />
         </Header>
         <Content padder>
-          <ListItem>
+          <ListItem onPress={this.selectTheLanguage.bind(this, 'en')}>
             <Left>
-                <Text>{ResourceAction.message('Inglês', this.props.languageReducer)}</Text>
+              <Text>{ResourceAction.message('Inglês', this.props.languageReducer)}</Text>
             </Left>
             <Right>
                 <CheckBox onPress={this.selectTheLanguage.bind(this, 'en')}  checked={this.props.languageReducer.languageChoosed == 'en'} />
             </Right>
           </ListItem>
-          <ListItem>
+          <ListItem onPress={this.selectTheLanguage.bind(this, 'pt')}>
             <Left>
               <Text>{ResourceAction.message('Português', this.props.languageReducer)}</Text>
             </Left>
@@ -74,7 +74,7 @@ class Information extends Component
 const styles = {
   container: {
     flex: 1,
-    backgroundColor: "#FFF"
+    backgroundColor:'#eafff2'
   }
 };
 

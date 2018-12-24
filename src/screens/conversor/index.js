@@ -146,7 +146,7 @@ class Home extends Component {
             <View style={{flex:2, flexDirection:'row'}}>
               <Right>
                 <TouchableOpacity style={{marginRight:10}}   onPress={() => this.props.info(this)}>
-                  <Image style={{width:20, height:20}} source={require('../../../assets/icons/language_icon.jpg')}/>
+                  <Image style={{width:20, height:20}} source={require('../../../assets/icons/language_icon.png')}/>
                 </TouchableOpacity>
               </Right>
             </View>
