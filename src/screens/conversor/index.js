@@ -1,6 +1,6 @@
 const ReactN = require("react-native");
 import React, { Component } from "react";
-import { Image, View, TouchableOpacity, Platform } from "react-native";
+import { Image, View, TouchableOpacity, Platform,ImageBackground  } from "react-native";
 import { Container, 
   Button, 
   H3, 
@@ -9,7 +9,8 @@ import { Container,
   Icon,
   Text, 
   Label,
-  Right} from "native-base";
+  Right
+} from "native-base";
 import { connect } from "react-redux";
 import TopMenu from './topMenu';
 import ConversorAction from '../../library/actions/conversor';
@@ -20,6 +21,7 @@ import Medidas2 from './MedidasTo'
 import styles from "./styles";
 import { NativeModules, ExponentLocalization } from 'react-native'
 import ResourceAction from '../../library/actions/resource';
+import { Constants } from 'expo';
 
 
 const { Dimensions } = ReactN;
@@ -92,12 +94,9 @@ class Home extends Component {
 
     let content = (
       <Container>
-        <View style={styles.backgroundImage}>
+        <ImageBackground style={{width: '100%', height: '100%'}} source={require('../../../assets/background-pattern.png')}>
           <KeyboardAwareScrollView>
-            {isAndroid ? 
-              <View />
-            : <View style={{height:20, backgroundColor:'white'}} />
-            }
+            <View style={{ height: Constants.statusBarHeight, backgroundColor:'white'}} />
             <TopMenu />
             <View style={{height:5}} />
 
@@ -151,7 +150,7 @@ class Home extends Component {
               </Right>
             </View>
           </KeyboardAwareScrollView>
-        </View>     
+        </ImageBackground>     
       </Container>
     );
 

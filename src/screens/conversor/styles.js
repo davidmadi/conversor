@@ -10,7 +10,6 @@ export default StyleSheet.create({
     flex: 1,
     width: deviceWidth,
     height: null,
-    backgroundColor:'#eafff2'
   },
   container: {
     flex: 1,
