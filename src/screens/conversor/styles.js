@@ -17,7 +17,7 @@ export default StyleSheet.create({
     justifyContent: 'center'
   },
   colsWrapper: {
-    flex: 1,
+    flex: 4,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
@@ -28,7 +28,7 @@ export default StyleSheet.create({
     width: deviceWidth/2,
     marginTop: 0,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   pageTitle:{
     fontSize: 40,
@@ -43,7 +43,7 @@ export default StyleSheet.create({
     marginBottom: 10,
     color: '#000',
   },
-  smallLabelComponent:{
+  pinkSmallLabel:{
     flex:1,
     fontSize: 18,
     color: '#DC7F9B',

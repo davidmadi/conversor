@@ -32,7 +32,6 @@ class TopMenu extends Component {
   render() {
     let wid = this.props.allIngredientes.length * 100;
     return (
-      <View style={{backgroundColor:'transparent', marginTop:2}}>
         <ScrollView 
           horizontal={true}
           style={{zIndex:20, backgroundColor:'transparent', height:100}}>
@@ -67,7 +66,6 @@ class TopMenu extends Component {
               );
             })}
         </ScrollView>
-      </View>
     );
   }
 }

@@ -42,12 +42,11 @@ class Medidas2 extends React.Component {
   render() {
     let medidaNome = (this.props.medidaTo) ? this.props.medidaTo.nome : null;
     return (
-      <View style={{borderWidth:2, borderRadius:5, borderColor:'#aee8d2', backgroundColor:'transparent', height:230, width:mWidth, marginTop:0}}>
         <ScrollView 
           horizontal={false}
           vertical={true}
           showsVerticalScrollIndicator={true}
-          style={{zIndex:20, padding:1, height:20}}>
+          style={{zIndex:20, padding:1}}>
             {this.conversor.getMedidas().map(c => {
               let backColor = (c.nome == medidaNome) ? '#DC7F9B' : "#b5b5b5";
 
@@ -67,7 +66,6 @@ class Medidas2 extends React.Component {
               );
             })}
         </ScrollView>
-      </View>
     );
   }
 }
