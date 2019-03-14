@@ -1,7 +1,8 @@
 #Cook conversor
+<br/>
+<br/>
 ##Use this app to convert measures of your recipe
 <br/>
-Clone:
 git clone https://github.com/davidmadi/conversor
 <br/>
 <br/>
