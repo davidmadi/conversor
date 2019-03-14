@@ -1,8 +1,7 @@
-#Conversor de medidas
+#Cook conversor
+##Use this app to convert measures of your recipe
 <br/>
-#Ainda está dentro do Expo.
-<br/>
-clonar o projeto:
+Clone:
 git clone https://github.com/davidmadi/conversor
 <br/>
 <br/>
@@ -13,3 +12,5 @@ npm i --save
 npm start
 <br/>
 <br/>
+#Available on App Store [a link](https://itunes.apple.com/br/app/cook-conversor/id1455732256?l=en#?platform=iphone)
+
