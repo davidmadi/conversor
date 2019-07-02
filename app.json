@@ -1,8 +1,8 @@
 {
   "expo": {
-    "githubUrl" : "https://github.com/davidmadi/conversor",
-    "name" : "Cook Conversor",
-    "version": "1.0.0",
+    "githubUrl": "https://github.com/davidmadi/conversor",
+    "name": "Cook Conversor",
+    "version": "1.0.1",
     "ios": {
       "bundleIdentifier": "com.davidmadi.cookconversor",
       "supportsTablet": true
@@ -28,6 +28,11 @@
     "androidStatusBar": {
       "barStyle": "light-content",
       "backgroundColor": "#334393"
-    }
+    },
+    "platforms": [
+      "android",
+      "ios"
+    ],
+    "description": "Change of default logo"
   }
 }
