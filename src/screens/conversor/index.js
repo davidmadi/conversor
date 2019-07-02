@@ -35,6 +35,7 @@ const android = (Platform.OS != "ios") ? true : false;
 const divPlat = (android) ? 1 : 2;
 
 const height05 = parseInt(deviceHeight*0.05);
+const device08 = parseInt(deviceHeight*0.4);
 
 class Home extends Component {
 
@@ -90,7 +91,7 @@ class Home extends Component {
     let content = (
       <Container>
         <ImageBackground style={{width: '100%', height: '100%'}} source={require('../../../assets/background-pattern.png')}>
-          <Content>
+          <Content scrollEnabled={false}>
             <View style={{flex:2, alignSelf:'flex-start'}}>
               <View style={{ height: Constants.statusBarHeight, backgroundColor:'white'}} />
               <TopMenu />
@@ -103,7 +104,8 @@ class Home extends Component {
                     flexDirection: 'row',
                     alignItems: 'center',
                     justifyContent: 'space-between',
-                    marginTop:20
+                    marginTop:20,
+                    height:device08
                 }}>
                 <View style={{alignSelf:'flex-start', width: deviceWidth/2,
                   marginTop: 0, alignItems: 'center', justifyContent: 'center'}}>
