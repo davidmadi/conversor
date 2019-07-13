@@ -1,0 +1,36 @@
+{
+  "expo": {
+    "githubUrl": "https://github.com/davidmadi/conversor",
+    "name": "Cook Conversor",
+    "ios": {
+      "bundleIdentifier": "com.davidmadi.cookconversor",
+      "supportsTablet": true
+    },
+    "version": "1.0.2",
+    "slug": "conversor",
+    "loading": {
+      "hideExponentText": true,
+      "backgroundImage": "./assets/background-pattern.png"
+    },
+    "privacy": "public",
+    "sdkVersion": "33.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "orientation": "portrait",
+    "icon": "./assets/logo167.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
