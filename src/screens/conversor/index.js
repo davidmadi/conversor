@@ -205,9 +205,6 @@ const mapDispatchToProps  = (dispatch) => ({
   },
   plusQuantidade :(_this)=> {
     ConversorAction.plusQuantidade(dispatch, _this);
-    NativeModules.ExponentLocalization.getCurrentLocaleAsync().then((a) =>{
-      console.log(a);
-    });
   },
   minusQuantidade :(_this)=> {
     ConversorAction.minusQuantidade(dispatch, _this);
