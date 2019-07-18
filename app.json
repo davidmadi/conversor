@@ -6,7 +6,7 @@
       "bundleIdentifier": "com.davidmadi.cookconversor",
       "supportsTablet": true
     },
-    "version": "1.0.2",
+    "version": "1.0.3",
     "slug": "conversor",
     "loading": {
       "hideExponentText": true,
