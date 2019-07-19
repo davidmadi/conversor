@@ -20,7 +20,6 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import Medidas1 from './MedidasFrom'
 import Medidas2 from './MedidasTo'
 import styles from "./styles";
-import { NativeModules, ExponentLocalization } from 'react-native'
 import ResourceAction from '../../library/actions/resource';
 //import { Constants } from 'expo';
 //import * as Constants from 'expo-file-system'
@@ -95,39 +94,41 @@ class Home extends Component {
       <Container>
         <ImageBackground style={{width: '100%', height: '100%'}} source={require('../../../assets/background-pattern.png')}>
           <Content scrollEnabled={false}>
-            <View style={{flex:2, alignSelf:'flex-start'}}>
-              <View style={{ height: Constants.statusBarHeight, backgroundColor:'white'}} />
-              <TopMenu />
-              <View style={{height:5}} />
-            </View>
+            <View style={{flex:21, flexDirection:'column', justifyContent:'flex-start'}}>
 
-            <View style={{flex:12, flexDirection:'column', alignSelf:'flex-start', justifyContent:'space-between'}}>
-              <View style={{
-                    flex: 4,
-                    flexDirection: 'row',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                    marginTop:20,
-                    height:device08
-                }}>
-                <View style={{alignSelf:'flex-start', width: deviceWidth/2,
-                  marginTop: 0, alignItems: 'center', justifyContent: 'center'}}>
-                  <View style={{height:height05}}>
-                    <Text style={styles.blackSmallLabel}>{ResourceAction.message("De", this.props.languageReducer)} {styles.height05}</Text>
+              <View style={{flex:2, flexDirection:'column', alignSelf:'center'}}>
+                <View style={{ height: Constants.statusBarHeight, backgroundColor:'white'}} />
+                <TopMenu />
+                <View style={{height:5}} />
+              </View>
+
+              <View style={{flex:8, flexDirection:'column', justifyContent:'space-between'}}>
+                <View style={{flex: 4,
+                      flexDirection: 'row',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                      marginTop:20,
+                      height:device08
+                  }}>
+                  <View style={{alignSelf:'flex-start', width: deviceWidth/2,
+                    marginTop: 0, alignItems: 'center', justifyContent: 'center'}}>
+                    <View style={{height:height05}}>
+                      <Text style={styles.blackSmallLabel}>{ResourceAction.message("De", this.props.languageReducer)} {styles.height05}</Text>
+                    </View>
+                    <Medidas1 />
                   </View>
-                  <Medidas1 />
-                </View>
-                <View style={{alignSelf:'flex-start', width: deviceWidth/2, 
-                  marginTop: 0, alignItems: 'center', justifyContent: 'center'}}>
-                  <View style={{height:height05}}>
-                    <Text style={styles.pinkSmallLabel}>{ResourceAction.message("Para", this.props.languageReducer)}</Text>
+                  <View style={{alignSelf:'flex-start', width: deviceWidth/2, 
+                    marginTop: 0, alignItems: 'center', justifyContent: 'center'}}>
+                    <View style={{height:height05}}>
+                      <Text style={styles.pinkSmallLabel}>{ResourceAction.message("Para", this.props.languageReducer)}</Text>
+                    </View>
+                    <Medidas2 />
                   </View>
-                  <Medidas2 />
-                </View>
+                </View>              
               </View>
 
               <View style={{flex:2,marginTop:5, flexDirection:'column', alignItems:'center'}}>
-                <Text style={{fontSize:20, color:'#000'}}>{ResourceAction.message(strIngrediente, this.props.languageReducer)}</Text>
+                  <Text style={{fontSize:20, color:'#000'}}>{ResourceAction.message(strIngrediente, this.props.languageReducer)}</Text>
               </View>
               <View style={{flex:2, marginLeft:10, marginRight:10, marginTop:10, flexDirection:'row'}}>
                 <Button style={styles.signbutton} onPress={() => this.props.minusQuantidade(this)}>
@@ -140,29 +141,31 @@ class Home extends Component {
                   <Text style={styles.signbuttontext}>+</Text>
                 </Button>
               </View>
-              <View style={{flex:2, flexDirection:'column', alignItems: 'center'}}>
-                <Text style={styles.labelComponent}>{strMedidaFrom}</Text>
+
+              <View style={{flex:2, padding:5, marginTop:10, flexDirection:'row', alignItems: 'center'}}>
+                <View style={{flex:2, width: '100%', margin: 0, alignItems: 'center'}}>
+                  <Text style={styles.labelComponent}>{strMedidaFrom}</Text>
+                </View>
               </View>
               <View style={{flex:2, height:height05, flexDirection:'column', alignItems: 'center'}}>
                 <Text style={styles.labelComponent}>=</Text>
               </View>
 
-              <View style={{flex:2, padding:5, marginTop:10, flexDirection:'row', alignItems: 'center', borderWidth:0, borderColor:'#DC7F9B'}}>
+              <View style={{flex:2, padding:5, marginTop:10, flexDirection:'row', alignItems: 'center'}}>
                 <View style={{flex:2, width: '100%', margin: 0, alignItems: 'center'}}>
                   <Text style={{fontSize:24, color:'#DC7F9B'}}>{this.props.resultado} {strMedidaTo}</Text>
                 </View>
               </View>
 
-              <View style={{flex:2, flexDirection:'column', alignSelf:'flex-end'}}>
+              <View style={{flex:1, flexDirection:'column', alignSelf:'flex-end'}}>
                 <Right>
                   <TouchableOpacity style={{marginRight:10}}   onPress={() => this.props.info(this)}>
                     <Image style={{width:20, height:20}} source={require('../../../assets/icons/language_icon.png')}/>
                   </TouchableOpacity>
                 </Right>
               </View>
-              
-            </View>
 
+            </View>
           </Content>    
         </ImageBackground> 
       </Container>

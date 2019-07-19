@@ -1,5 +1,5 @@
 import { AsyncStorage } from "react-native"
-import { NativeModules } from 'react-native'
+import * as Localization from 'expo-localization';
 const key = '@conversor::resource_language';
 
 export default class ResourceAction
@@ -13,13 +13,9 @@ export default class ResourceAction
       }
       else
       {
-        NativeModules.ExponentLocalization.getCurrentLocaleAsync()
-        .then((languageSelected)=>{
-          ResourceAction.setLanguage(dispatch, languageSelected);
-        })
-        .catch(()=>{
-          ResourceAction.setLanguage(dispatch, 'pt');
-        })
+        if (Localization && Localization.locale){
+          ResourceAction.setLanguage(dispatch, Localization.locale);
+        }
       }
     })
   }

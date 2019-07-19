@@ -22,9 +22,9 @@
     "orientation": "portrait",
     "icon": "./assets/logo167.png",
     "splash": {
+      "resizeMode": "cover",
       "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#dafff0"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
