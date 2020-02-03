@@ -2,8 +2,8 @@
   "devToolsPort": 19002,
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 1620,
-  "expoServerNgrokUrl": "https://cc-gxv.davidmadi.conversor.exp.direct",
-  "packagerNgrokUrl": "https://packager.cc-gxv.davidmadi.conversor.exp.direct",
-  "ngrokPid": 1633
+  "packagerPid": 5344,
+  "expoServerNgrokUrl": "https://cc-gxv.davidmadi.conversor-pub.exp.direct",
+  "packagerNgrokUrl": "https://packager.cc-gxv.davidmadi.conversor-pub.exp.direct",
+  "ngrokPid": 5356
 }
